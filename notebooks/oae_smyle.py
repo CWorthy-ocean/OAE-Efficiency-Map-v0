@@ -137,7 +137,7 @@ def create_clone(
     check_call(["qcmd", "--", "./case.build"], cwd=caseroot)
 
     if resubmit is not None:
-        xlmchange(f"RESUBMIT={resubmit}")
+        xmlchange(f"RESUBMIT={resubmit}")
     
     if submit:
         xmlchange(f"STOP_N={stop_n}")
