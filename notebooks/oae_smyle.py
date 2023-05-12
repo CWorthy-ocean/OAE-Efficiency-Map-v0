@@ -212,7 +212,7 @@ def open_dataset(case, stream):
     return ds
 
 
-def compute_flux_effect(ds):
+def compute_additional_CO2_flux(ds):
     """compute the additional CO2 flux"""
     with xr.set_options(keep_attrs=True):
         flux_effect = (-1.0) * (ds.FG_CO2 - ds.FG_ALT_CO2).where(ds.KMT > 0)
@@ -224,18 +224,7 @@ def compute_flux_effect(ds):
     return flux_effect
 
 
-def compute_alk_excess_100m(ds):
-    """compute the additional CO2 flux"""
-    with xr.set_options(keep_attrs=True):
-        alk_excess = ((ds.ALK - ds.ALK_ALT_CO2)*ds.dz).sel(z_t=slice(0, 100e2)).sum('z_t')
-        alk_excess *= nmolcm2_to_molm2
-        alk_excess.attrs['units'] = 'mol m$^{-2}$'
-        alk_excess['area_m2'] = ds.TAREA * 1e-4
-        alk_excess = alk_excess.reset_coords('TAREA', drop=True)
-    return alk_excess
-
-
-def time_integral(da, convert_time=1.0):
+def compute_time_cumulative_integral(da, convert_time=1.0):
     """integrate a DataArray in time"""
     with xr.set_options(keep_attrs=True):
         dao = da.weighted(da.time_delta * convert_time).sum('time')
@@ -243,11 +232,26 @@ def time_integral(da, convert_time=1.0):
     return dao
 
 
-def global_ts(da):
+def compute_global_ts(da):
     """integrate DataArray globally"""
     with xr.set_options(keep_attrs=True):
         dao = (da * da.area_m2).sum(['nlat', 'nlon'])
     dao.attrs['units'] = dao.attrs['units'].replace('m$^{-2}$', '')
     return dao
 
+
+def compute_additional_DIC_global_ts(ds):
+    """return the globally-integrated, time-integrated flux"""
+    
+    add_co2_ts = compute_global_ts(
+        compute_additional_CO2_flux(ds)
+    )
+    
+    # compute cumulative integral in time
+    dt = add_co2_ts.time_delta / 365 # time_delta in days, convert to years
+    with xr.set_options(keep_attrs=True):
+        dao = (-1.0) * (add_co2_ts * dt).cumsum('time')
+    dao.attrs['long_name'] = 'Change in DIC inventory'
+    dao.attrs['units'] = dao.attrs['units'].replace('yr$^{-1}$', '').strip()
+    return dao
 
