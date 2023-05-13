@@ -25,6 +25,29 @@ refcase = "g.e22.GOMIPECOIAF_JRA-1p4-2018.TL319_g17.SMYLE.005"
 refcase_root = "/glade/work/klindsay/cesm22_cases/SMYLE"
 refcaserest_root = "/glade/work/mclong/SMYLE-FOSI/rest"
 
+"""
+Details of g.e22.GOMIPECOIAF_JRA-1p4-2018.TL319_g17.SMYLE.005
+FOSI (forced ocean--sea-ice) simulation. 
+
+Details of this simulation are as follows:
+    - CASE: g.e22.GOMIPECOIAF_JRA-1p4-2018.TL319_g17.SMYLE.005
+    - CASEROOT: /glade/work/klindsay/cesm22_cases/SMYLE/$CASE
+    - SRCROOT: /glade/work/klindsay/cesm2_tags/cesm2.2.0/
+    - forcing:  JRA55-do v1.4, 1958-2018 (==> 61-year cycle)
+    - spinup: 6 cycles (==> simyears 0001-0366)
+    - years used for SMYLE ICs:   0306 (1958) - 0366 (2018)
+
+* Modifications from CMIP6-OMIP2 were made to improve sea-ice and ocean BGC fields:
+    -Use of full 1958-2018 (61-year) forcing cycle during spinup
+    -Use of strong under-ice restoring to model prognostic freezing temperature (TFZ)
+    -Reduced deep isopycnal mixing (kappa_isop_deep = 0.1, instead of CESM2-default of 0.2)
+    -Enhanced sea ice albedoes:
+            r_snw = 1.6
+            dt_mlt = 0.5
+            rsnw_mlt = 1000.
+            
+"""
+
 
 nmolcm2s_to_molm2yr = 1.0e-9 * 1.0e4 * 86400.0 * 365.0
 nmolcm2_to_molm2 = 1.0e-9 * 1.0e4
