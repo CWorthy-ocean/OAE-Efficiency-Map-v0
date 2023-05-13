@@ -38,13 +38,14 @@ def create_clone(
     stop_option="nyear",
     job_queue="economy",
     wallclock="12:00:00",
-    resubmit=None,
+    resubmit=0,
     clobber=False,
     submit=False,
+    curtail_output=True,
 ):
     caseroot = f"{caseroot_root}/{case}"
     if os.path.exists(caseroot) and not clobber:
-        print(f"Case {case} exists; skipping.")
+        print(f"Case {case} exists; caseroot:\n{caseroot}\n")
         return
 
     rundir = f"{config.dir_scratch}/{case}"
@@ -69,8 +70,18 @@ def create_clone(
         cwd=f"{coderoot}/cime/scripts",
     )
 
-    # copy source mods
+    # list SourceMod files
     src_pop_files = glob(f"{scriptroot}/SourceMods-OAE/src.pop/*")
+    if curtail_output:
+        src_pop_files.extend(
+            glob(f"{scriptroot}/SourceMods-OAE/src.pop.curtail-output/*")
+        )
+    else:
+        src_pop_files.extend(
+            glob(f"{scriptroot}/SourceMods-OAE/src.pop.full-output/*")
+        )
+
+    # copy SourceMod files
     for src in src_pop_files:
         src_basename = os.path.basename(src)
         if src_basename == "diagnostics_latest.yaml":
@@ -86,6 +97,8 @@ def create_clone(
         else:
             dst = f"{caseroot}/SourceMods/src.pop/{src_basename}"
             shutil.copyfile(src, dst)
+            if '.csh' in src_basename: 
+                check_call(['chmod', '+x', dst])
 
     # xml settings
     def xmlchange(arg):
@@ -97,16 +110,19 @@ def create_clone(
     xmlchange(f"RUN_REFCASE={refcase}")
     xmlchange(f"RUN_REFDATE={refdate}")
 
+    xmlchange(f"STOP_N={stop_n}")
+    xmlchange(f"STOP_OPTION={stop_option}")
+    xmlchange(f"REST_N={stop_n}")
+    xmlchange(f"REST_OPTION={stop_option}")
+    xmlchange(f"RESUBMIT={resubmit}")    
+    
+    xmlchange(f"JOB_QUEUE={job_queue}")
+    xmlchange(f"JOB_WALLCLOCK_TIME={wallclock}")    
+
     # copy restarts
     check_call(
         f"cp {refcaserest_root}/{refdate}-00000/* {config.dir_scratch}/{case}/run/.",
         shell=True,
-    )
-
-    # set ALT_CO2 tracers to CO2 tracers
-    check_call(
-        ["./set-alt-co2.sh", f"{rundir}/run/{refcase}.pop.r.{refdate}-00000.nc"],
-        cwd=scriptroot,
     )
 
     check_call(["./case.setup"], cwd=caseroot)
@@ -127,6 +143,20 @@ def create_clone(
     """
     )
 
+    if curtail_output:
+        user_nl["pop"] += textwrap.dedent(
+            f"""\
+
+        ! curtail output
+        ldiag_bsf = .false.    
+        diag_gm_bolus = .false.
+        moc_requested = .false.
+        n_heat_trans_requested = .false.
+        n_salt_trans_requested = .false.
+        ldiag_global_tracer_budgets = .false.
+        """
+        )    
+    
     for key, nl in user_nl.items():
         user_nl_file = f"{caseroot}/user_nl_{key}"
         with open(user_nl_file, "a") as fid:
@@ -134,20 +164,22 @@ def create_clone(
 
     check_call(["./preview_namelists"], cwd=caseroot)
 
-    check_call(["qcmd", "--", "./case.build"], cwd=caseroot)
-
-    if resubmit is not None:
-        xmlchange(f"RESUBMIT={resubmit}")
     
+
+       
+    # set ALT_CO2 tracers to CO2 tracers
+    check_call(
+        ["./set-alt-co2.sh", f"{rundir}/run/{refcase}.pop.r.{refdate}-00000.nc"],
+        cwd=scriptroot,
+    )    
+    
+    check_call(["qcmd", "-A", config.account, "--", "./case.build"], cwd=caseroot)
+                
     if submit:
-        xmlchange(f"STOP_N={stop_n}")
-        xmlchange(f"JOB_QUEUE={job_queue}")
-        xmlchange(f"STOP_OPTION={stop_option}")
-        xmlchange(f"JOB_WALLCLOCK_TIME={wallclock}")
         check_call(["./case.submit"], cwd=caseroot)
 
 
-def open_dataset(case, stream):
+def open_dataset(case, stream='pop.h'):
     """access data from a case"""
     grid = pop_tools.get_grid('POP_gx1v7')
 
