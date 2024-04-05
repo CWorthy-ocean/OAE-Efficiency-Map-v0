@@ -1,0 +1,9 @@
+xarray
+cmocean
+cartopy
+pop-tools
+scipy
+gsw
+PyCO2SYS
+joblib
+tables
