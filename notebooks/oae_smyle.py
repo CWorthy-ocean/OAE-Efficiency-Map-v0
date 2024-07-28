@@ -13,17 +13,20 @@ import pop_tools
 
 import config
 
+
 scriptroot = os.path.dirname(os.path.realpath(__file__))
 
 caseroot_root = f"{config.dir_project_root}/cesm-cases"
 os.makedirs(caseroot_root, exist_ok=True)
 
 
-
 coderoot = "/glade/work/klindsay/cesm2_tags/cesm2.2.0"
 refcase = "g.e22.GOMIPECOIAF_JRA-1p4-2018.TL319_g17.SMYLE.005"
 refcase_root = "/glade/work/klindsay/cesm22_cases/SMYLE"
 refcaserest_root = "/glade/work/mclong/SMYLE-FOSI/rest"
+mach_dir = "/glade/work/mlevy/codes/CESM/cesm2.2.2-dev/cime/config/cesm/machines"
+
+machine = "derecho"
 
 """
 Details of g.e22.GOMIPECOIAF_JRA-1p4-2018.TL319_g17.SMYLE.005
@@ -45,7 +48,6 @@ Details of this simulation are as follows:
             r_snw = 1.6
             dt_mlt = 0.5
             rsnw_mlt = 1000.
-            
 """
 
 
@@ -59,7 +61,6 @@ def create_clone(
     refdate="0347-01-01",
     stop_n=4,
     stop_option="nyear",
-    job_queue="economy",
     wallclock="12:00:00",
     resubmit=0,
     clobber=False,
@@ -78,19 +79,27 @@ def create_clone(
     check_call(["rm", "-fr", rundir])
     check_call(["rm", "-fr", archive_root])
 
+    try:
+        check_call(
+            [
+                "./create_clone",
+                "--clone",
+                f"{refcase_root}/{refcase}",
+                "--case",
+                caseroot,
+                "--project",
+                config.account,
+                "--cime-output-root",
+                config.dir_scratch,
+            ],
+            cwd=f"{coderoot}/cime/scripts",
+        )
+    except:
+        print('ignoring lmod error')
+
     check_call(
-        [
-            "./create_clone",
-            "--clone",
-            f"{refcase_root}/{refcase}",
-            "--case",
-            caseroot,
-            "--project",
-            config.account,
-            "--cime-output-root",
-            config.dir_scratch,
-        ],
-        cwd=f"{coderoot}/cime/scripts",
+        f"cp -vf {scriptroot}/SourceMods-OAE/mach-specific/{machine}/* {caseroot}/.",
+        shell=True,
     )
 
     # list SourceMod files
@@ -124,11 +133,13 @@ def create_clone(
                 check_call(['chmod', '+x', dst])
 
     # xml settings
-    def xmlchange(arg):
+    def xmlchange(arg, force=False):
         """call xmlchange"""
         check_call(["./xmlchange", arg], cwd=caseroot)
+            
+    xmlchange(f"MPILIB=mpich")
 
-    xmlchange("RUN_TYPE=branch")
+    xmlchange(f"RUN_TYPE=branch")
     xmlchange(f"RUN_STARTDATE={refdate}")
     xmlchange(f"RUN_REFCASE={refcase}")
     xmlchange(f"RUN_REFDATE={refdate}")
@@ -137,18 +148,21 @@ def create_clone(
     xmlchange(f"STOP_OPTION={stop_option}")
     xmlchange(f"REST_N={stop_n}")
     xmlchange(f"REST_OPTION={stop_option}")
-    xmlchange(f"RESUBMIT={resubmit}")    
-    
-    xmlchange(f"JOB_QUEUE={job_queue}")
-    xmlchange(f"JOB_WALLCLOCK_TIME={wallclock}")    
+    xmlchange(f"RESUBMIT={resubmit}")
+    xmlchange(f"JOB_WALLCLOCK_TIME={wallclock}")
 
     # copy restarts
+    os.makedirs(f"{config.dir_scratch}/{case}/run", exist_ok=True)
     check_call(
         f"cp {refcaserest_root}/{refdate}-00000/* {config.dir_scratch}/{case}/run/.",
         shell=True,
     )
 
-    check_call(["./case.setup"], cwd=caseroot)
+    check_call(
+        "./case.setup",
+        cwd=caseroot,
+        shell=True,
+    )
 
     # namelist
     user_nl = dict()
@@ -178,7 +192,7 @@ def create_clone(
         n_salt_trans_requested = .false.
         ldiag_global_tracer_budgets = .false.
         """
-        )    
+        )
     
     for key, nl in user_nl.items():
         user_nl_file = f"{caseroot}/user_nl_{key}"
@@ -187,17 +201,25 @@ def create_clone(
 
     check_call(["./preview_namelists"], cwd=caseroot)
 
-    
-
-       
     # set ALT_CO2 tracers to CO2 tracers
     check_call(
         ["./set-alt-co2.sh", f"{rundir}/run/{refcase}.pop.r.{refdate}-00000.nc"],
         cwd=scriptroot,
+    )
+
+    check_call(
+        "./xmlchange JOB_QUEUE=main --subgroup case.run --force",
+        cwd=caseroot,
+        shell=True,
+    )  
+    check_call(
+        "./xmlchange JOB_QUEUE=main --subgroup case.st_archive --force",
+        cwd=caseroot,
+        shell=True,
     )    
     
-    check_call(["qcmd", "-A", config.account, "--", "./case.build"], cwd=caseroot)
-                
+    check_call(["qcmd", "-A", config.account, "--", "./case.build --skip-provenance-check"], cwd=caseroot)
+
     if submit:
         check_call(["./case.submit"], cwd=caseroot)
 

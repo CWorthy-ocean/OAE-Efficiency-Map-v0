@@ -11,4 +11,4 @@ os.makedirs(dir_project_root, exist_ok=True)
 dir_data = f'{dir_project_root}/data'
 os.makedirs(dir_data, exist_ok=True)
 
-dir_scratch = f'/glade/scratch/{USER}'
+dir_scratch = f'/glade/derecho/scratch/{USER}'
