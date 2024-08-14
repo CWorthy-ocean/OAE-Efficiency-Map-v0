@@ -151,7 +151,11 @@ def create_clone(
     xmlchange(f"RESUBMIT={resubmit}")
     xmlchange(f"JOB_WALLCLOCK_TIME={wallclock}")
 
-    # copy restarts
+    xmlchange("MAX_MPITASKS_PER_NODE=128")
+    xmlchange("MAX_TASKS_PER_NODE=128")
+    xmlchange("NTASKS_OCN=696")
+
+        # copy restarts
     os.makedirs(f"{config.dir_scratch}/{case}/run", exist_ok=True)
     check_call(
         f"cp {refcaserest_root}/{refdate}-00000/* {config.dir_scratch}/{case}/run/.",
@@ -193,7 +197,7 @@ def create_clone(
         ldiag_global_tracer_budgets = .false.
         """
         )
-    
+
     for key, nl in user_nl.items():
         user_nl_file = f"{caseroot}/user_nl_{key}"
         with open(user_nl_file, "a") as fid:
