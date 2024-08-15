@@ -153,7 +153,9 @@ def create_clone(
 
     xmlchange("MAX_MPITASKS_PER_NODE=128")
     xmlchange("MAX_TASKS_PER_NODE=128")
-    xmlchange("NTASKS_OCN=696")
+    
+    #xmlchange("NTASKS_OCN=751") # Cheyenne setting
+    #xmlchange("NTASKS_OCN=696")
 
         # copy restarts
     os.makedirs(f"{config.dir_scratch}/{case}/run", exist_ok=True)
