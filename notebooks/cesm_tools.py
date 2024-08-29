@@ -1,3 +1,4 @@
+import os
 import sys
 import subprocess
 
@@ -114,3 +115,70 @@ def visualize_mask(mask3d):
         fig.delaxes(ax.ravel()[i])
 
     fig.suptitle(f'Mask name = {mask3d.mask_name}', fontsize=16)
+    
+    
+    
+def code_checkout(remote, coderoot, tag):
+    """Checkout code for CESM
+    If sandbox exists, check that the right tag has been checked-out.
+
+    Otherwise, download the code, checkout the tag and run manage_externals.
+    """
+
+    sandbox = os.path.join(coderoot, tag)
+
+    if os.path.exists(sandbox):
+        print(f"Check for right tag: {sandbox}")
+        p = subprocess.Popen("git status", shell=True, cwd=sandbox, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        stdout, stderr = p.communicate()
+        stdout = stdout.decode("UTF-8")
+        stderr = stderr.decode("UTF-8")
+        print(stdout)
+        print(stderr)
+        if tag not in stdout.split("\n")[0]:
+            raise ValueError("tag does not match")
+
+    else:
+        if not os.path.exists(coderoot):
+            os.makedirs(coderoot)
+
+        # clone the repo
+        p = subprocess.Popen(
+            f"git clone {remote} {tag}",
+            shell=True,
+            cwd=coderoot,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+        stdout, stderr = p.communicate()
+        if stdout:
+            print(stdout)
+        if stderr:
+            print(stderr)
+        if p.returncode != 0:
+            raise Exception("git error")
+
+        # check out the right tag
+        assert os.path.exists(sandbox)
+        p = subprocess.Popen(f"git checkout {tag}", shell=True, cwd=sandbox)
+        stdout, stderr = p.communicate()
+        if stdout:
+            print(stdout)
+        if stderr:
+            print(stderr)
+        if p.returncode != 0:
+            raise Exception("git error")
+
+        # check out externals
+        p = subprocess.Popen("./manage_externals/checkout_externals -v", shell=True, cwd=sandbox)
+        stdout, stderr = p.communicate()
+        if stdout:
+            print(stdout)
+        if stderr:
+            print(stderr)
+        if p.returncode != 0:
+            raise Exception("git error")
+
+    return sandbox    
+    
+    

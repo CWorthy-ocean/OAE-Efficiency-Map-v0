@@ -1,61 +1,35 @@
-name: mcdr
+name: cworthy
 channels:
-  - conda-forge
-  - defaults
+- conda-forge
+- default
 dependencies:
-  - bokeh
-  - bottleneck
-  - cartopy
-  - cf_units
-  - cftime
-  - cmocean
-  - conda-lock
-  - dask
-  - datashader
-  - distributed
-  - dask-jobqueue
-  - dask-mpi
-  - eofs
-  - esmpy
-  - ffmpeg
-  - holoviews
-  - intake
-  - intake-esm
-  - intake-xarray
-  - ipykernel
-  - jupyter-book
-  - jupyter_client==6.1.12
-  - jupyter_contrib_nbextensions
-  - jupyterlab
-  - jupyter-server-proxy
-  - matplotlib
-  - metpy
-  - nb_conda_kernels
-  - nc-time-axis
-  - ncar-jobqueue
-  - netcdf4
-  - numba
-  - numpy
-  - pandas
-  - panel
-  - papermill
-  - pint
-  - pip
-  - pop-tools
-  - pre-commit
-  - pytest
-  - python
-  - scipy
-  - seaborn
-  - seawater
-  - statsmodels
-  - toolz
-  - tqdm
-  - watermark
-  - xarray
-  - xcollection
-  - xesmf
-  - xgcm
-  - xhistogram
-  - xrft
-  - zarr
+- cartopy
+- cmocean
+- dask
+- distributed
+- dask-jobqueue
+- esmpy
+- ffmpeg
+- holoviews
+- ipykernel
+- ipywidgets
+- jupyter-book
+- jupyter_client
+- jupyterlab
+- mamba
+- matplotlib
+- nb_conda_kernels
+- nbformat
+- nbterm
+- netCDF4
+- numpy
+- PyCO2SYS
+- pandas
+- pip
+- pop-tools
+- scipy
+- seawater
+- xarray
+- xesmf
+- xgcm
+- zarr

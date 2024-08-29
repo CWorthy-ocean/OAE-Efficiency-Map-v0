@@ -157,7 +157,7 @@ def create_clone(
     #xmlchange("NTASKS_OCN=751") # Cheyenne setting
     #xmlchange("NTASKS_OCN=696")
 
-        # copy restarts
+    # copy restarts
     os.makedirs(f"{config.dir_scratch}/{case}/run", exist_ok=True)
     check_call(
         f"cp {refcaserest_root}/{refdate}-00000/* {config.dir_scratch}/{case}/run/.",
