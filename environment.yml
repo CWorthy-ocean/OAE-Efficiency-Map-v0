@@ -21,6 +21,7 @@ dependencies:
 - nb_conda_kernels
 - nbformat
 - nbterm
+- nc-time-axis
 - netCDF4
 - numpy
 - PyCO2SYS

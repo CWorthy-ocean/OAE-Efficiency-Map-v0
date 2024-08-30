@@ -58,9 +58,9 @@ def to_netcdf_clean(dset, path, netcdf3=True, **kwargs):
     if netcdf3:
         ncks_fl_fmt64bit(path)
 
-    dumps = subprocess.check_output(["ncdump", "-h", path]).strip().decode("utf-8")
+    dumps = subprocess.check_output(" ".join(["module load python && ncdump", "-h", path]), shell=True).strip().decode("utf-8")
     print(dumps)
-    dumps = subprocess.check_output(["ncdump", "-k", path]).strip().decode("utf-8")
+    dumps = subprocess.check_output(" ".join(["module load python && ncdump", "-k", path]), shell=True).strip().decode("utf-8")
     print(f"format: {dumps}")
     print("-" * 30)
 
@@ -80,7 +80,7 @@ def ncks_fl_fmt64bit(file_in, file_out=None):
         file_out = file_in
 
     ncks_cmd = " ".join(["ncks", "-O", "--fl_fmt=64bit", file_in, file_out])
-    cmd = " && ".join(["module load nco", ncks_cmd])
+    cmd = " && ".join(["module load e4s", "spack env activate gcc", "spack load nco", ncks_cmd])
 
     p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 

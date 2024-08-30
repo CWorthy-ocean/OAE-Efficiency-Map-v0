@@ -10,14 +10,23 @@ import numpy as np
 import xarray as xr
 
 import pop_tools
-import cesm_tools
-import project
+
+import config
 
 
 scriptroot = os.path.dirname(os.path.realpath(__file__))
 
-caseroot_root = f"{project.dir_project_root}/cesm-cases"
+caseroot_root = f"{config.dir_project_root}/cesm-cases"
 os.makedirs(caseroot_root, exist_ok=True)
+
+
+coderoot = "/glade/work/klindsay/cesm2_tags/cesm2.2.0"
+refcase = "g.e22.GOMIPECOIAF_JRA-1p4-2018.TL319_g17.SMYLE.005"
+refcase_root = "/glade/work/klindsay/cesm22_cases/SMYLE"
+refcaserest_root = "/glade/work/mclong/SMYLE-FOSI/rest"
+mach_dir = "/glade/work/mlevy/codes/CESM/cesm2.2.2-dev/cime/config/cesm/machines"
+
+machine = "derecho"
 
 """
 Details of g.e22.GOMIPECOIAF_JRA-1p4-2018.TL319_g17.SMYLE.005
@@ -40,19 +49,13 @@ Details of this simulation are as follows:
             dt_mlt = 0.5
             rsnw_mlt = 1000.
 """
-refcase = "g.e22.GOMIPECOIAF_JRA-1p4-2018.TL319_g17.SMYLE.005"
-refcaserest_root = f"{project.dir_project_root}/data/{refcase}/rest"
-cesm_tag = "release-cesm2.1.5"
-
-compset = "OMIP_DATM%JRA-1p4-2018_SLND_CICE_POP2%ECO_DROF%JRA-1p4-2018_SGLC_WW3_SIAC_SESP"
-res = "TL319_g17"
 
 
 nmolcm2s_to_molm2yr = 1.0e-9 * 1.0e4 * 86400.0 * 365.0
 nmolcm2_to_molm2 = 1.0e-9 * 1.0e4
 
 
-def create_oae_case(
+def create_clone(
     case,
     alk_forcing_file,
     refdate="0347-01-01",
@@ -63,79 +66,42 @@ def create_oae_case(
     clobber=False,
     submit=False,
     curtail_output=True,
-    queue="regular",
-    code_checkout=True,
 ):
-    caseroot = f"{project.dir_caseroot_root}/{case}"
-    assert not os.path.exists(caseroot) or clobber, f"Case {case} exists; caseroot:\n{caseroot}\n"
+    caseroot = f"{caseroot_root}/{case}"
+    if os.path.exists(caseroot) and not clobber:
+        print(f"Case {case} exists; caseroot:\n{caseroot}\n")
+        return
 
-    coderoot = os.path.join(project.dir_codes, cesm_tag)
-    if code_checkout:
-        cesm_tools.code_checkout("https://github.com/ESCOMP/CESM.git", project.dir_codes, cesm_tag)    
-        
-    rundir = f"{project.dir_scratch}/{case}"
-    archive_root = f"{project.dir_scratch}/archive/{case}"
-    
+    rundir = f"{config.dir_scratch}/{case}"
+    archive_root = f"{config.dir_scratch}/archive/{case}"
+
     check_call(["rm", "-fr", caseroot])
     check_call(["rm", "-fr", rundir])
     check_call(["rm", "-fr", archive_root])
 
+    try:
+        check_call(
+            [
+                "./create_clone",
+                "--clone",
+                f"{refcase_root}/{refcase}",
+                "--case",
+                caseroot,
+                "--project",
+                config.account,
+                "--cime-output-root",
+                config.dir_scratch,
+            ],
+            cwd=f"{coderoot}/cime/scripts",
+        )
+    except:
+        print('ignoring lmod error')
+
     check_call(
-        " ".join([
-            "module load python",
-            "&&",      
-            "./create_newcase",
-            "--compset", compset,
-            "--case", caseroot,
-            "--res", res,
-            "--machine", project.mach,
-            "--project", project.account,            
-            "--run-unsupported"]),
-        shell=True,
-        cwd=f"{coderoot}/cime/scripts",
-    )
-
-    def xmlchange(arg, force=False):
-        """call xmlchange"""
-        check_call(f"module load python && ./xmlchange {arg}", cwd=caseroot, shell=True)
-    
-    xmlchange("MAX_TASKS_PER_NODE=128")
-    xmlchange("MAX_MPITASKS_PER_NODE=128")
-
-    xmlchange("NTASKS_ATM=72")
-    xmlchange("NTASKS_CPL=72")
-    xmlchange("NTASKS_WAV=72")
-    xmlchange("NTASKS_GLC=72")
-    xmlchange("NTASKS_ICE=72")
-    xmlchange("NTASKS_ROF=72")
-    xmlchange("NTASKS_LND=72")
-    xmlchange("NTASKS_ESP=72")
-
-    xmlchange("NTASKS_OCN=751")
-    xmlchange("ROOTPE_OCN=72")
-
-    xmlchange("CICE_BLCKX=16")
-    xmlchange("CICE_BLCKY=16")
-    xmlchange("CICE_MXBLCKS=7")
-    xmlchange("CICE_DECOMPTYPE='sectrobin'")
-    xmlchange("CICE_DECOMPSETTING='square-ice'")
-
-    xmlchange("OCN_TRACER_MODULES='iage ecosys'")
-
-    xmlchange("POP_AUTO_DECOMP=FALSE")
-    xmlchange("POP_BLCKX=9")
-    xmlchange("POP_BLCKY=16")
-    xmlchange("POP_NX_BLOCKS=36")
-    xmlchange("POP_NY_BLOCKS=24")
-    xmlchange("POP_MXBLCKS=1")
-    xmlchange("POP_DECOMPTYPE='spacecurve'")    
-    
-    # refcase SourceMods
-    check_call(
-        f"cp -vr {scriptroot}/CESM-RefCase/{refcase}/SourceMods/* {caseroot}/SourceMods",
+        f"cp -vf {scriptroot}/SourceMods-OAE/mach-specific/{machine}/* {caseroot}/.",
         shell=True,
     )
-    
+
     # list SourceMod files
     src_pop_files = glob(f"{scriptroot}/SourceMods-OAE/src.pop/*")
     if curtail_output:
@@ -152,25 +118,27 @@ def create_oae_case(
         src_basename = os.path.basename(src)
         if src_basename == "diagnostics_latest.yaml":
             check_call(
-                " ".join([
-                    "module load python", 
-                    "&&",
+                [
                     f"{coderoot}/components/pop/externals/MARBL/MARBL_tools/./yaml_to_json.py",
                     "-y",
                     f"{src}",
                     "-o",
                     f"{caseroot}/SourceMods/src.pop",
-                ]),
-                shell=True
+                ]
             )
         else:
             dst = f"{caseroot}/SourceMods/src.pop/{src_basename}"
             shutil.copyfile(src, dst)
             if '.csh' in src_basename: 
                 check_call(['chmod', '+x', dst])
+
+    # xml settings
+    def xmlchange(arg, force=False):
+        """call xmlchange"""
+        check_call(["./xmlchange", arg], cwd=caseroot)
             
-    xmlchange(f"DIN_LOC_ROOT={project.cesm_inputdata}")
-        
+    xmlchange(f"MPILIB=mpich")
+
     xmlchange(f"RUN_TYPE=branch")
     xmlchange(f"RUN_STARTDATE={refdate}")
     xmlchange(f"RUN_REFCASE={refcase}")
@@ -183,48 +151,25 @@ def create_oae_case(
     xmlchange(f"RESUBMIT={resubmit}")
     xmlchange(f"JOB_WALLCLOCK_TIME={wallclock}")
 
-    xmlchange(f"CHARGE_ACCOUNT={project.account}")
-    xmlchange(f"PROJECT={project.account}")
-    xmlchange(f"JOB_QUEUE={queue}")
+    xmlchange("MAX_MPITASKS_PER_NODE=128")
+    xmlchange("MAX_TASKS_PER_NODE=128")
     
+    #xmlchange("NTASKS_OCN=751") # Cheyenne setting
+    #xmlchange("NTASKS_OCN=696")
+
     # copy restarts
-    os.makedirs(f"{project.dir_scratch}/{case}/run", exist_ok=True)
+    os.makedirs(f"{config.dir_scratch}/{case}/run", exist_ok=True)
     check_call(
-        f"cp {refcaserest_root}/{refdate}-00000/* {project.dir_scratch}/{case}/run/.",
+        f"cp {refcaserest_root}/{refdate}-00000/* {config.dir_scratch}/{case}/run/.",
         shell=True,
     )
 
     check_call(
-        "module load python && ./case.setup",
+        "./case.setup",
         cwd=caseroot,
         shell=True,
     )
 
-    # handle the myserious failures with ESP
-    os.makedirs(f"{caseroot}/SourceMods/src.desp", exist_ok=True)
-    with open(f"{project.dir_scratch}/{case}/run/rpointer.esp", "w") as fid:
-        fid.write("\n")
-
-    # copy RefCase user_nl files    
-    user_nl_files = glob(f"{scriptroot}/CESM-RefCase/{refcase}/user_nl*")
-    for file in user_nl_files:
-        file_out = os.path.join(caseroot, os.path.basename(file))
-        print(f"{file} -> {file_out}")
-        with open(file, "r") as fid:
-            file_str = fid.read().replace("/glade/p/cesmdata/cseg/inputdata", project.cesm_inputdata)
-        with open(file_out, "w") as fid:
-            fid.write(file_str)        
-
-    # user_datm files        
-    user_datm_files = glob(f"{scriptroot}/CESM-RefCase/{refcase}/user_datm.*")
-    for file in user_datm_files:
-        file_out = os.path.join(caseroot, os.path.basename(file))
-        print(f"{file} -> {file_out}")
-        with open(file, "r") as fid:
-            file_str = fid.read().replace("/glade/p/cesmdata/cseg/inputdata", project.cesm_inputdata)
-        with open(file_out, "w") as fid:
-            fid.write(file_str)
-        
     # namelist
     user_nl = dict()
 
@@ -260,11 +205,7 @@ def create_oae_case(
         with open(user_nl_file, "a") as fid:
             fid.write(user_nl[key])
 
-    # check_call(
-    #     "module load python && ./preview_namelists", 
-    #     cwd=caseroot,
-    #     shell=True,
-    # )
+    check_call(["./preview_namelists"], cwd=caseroot)
 
     # set ALT_CO2 tracers to CO2 tracers
     check_call(
@@ -272,26 +213,28 @@ def create_oae_case(
         cwd=scriptroot,
     )
 
-    
     check_call(
-        "module load python && ./case.build",
+        "./xmlchange JOB_QUEUE=main --subgroup case.run --force",
         cwd=caseroot,
         shell=True,
-    )
+    )  
+    check_call(
+        "./xmlchange JOB_QUEUE=main --subgroup case.st_archive --force",
+        cwd=caseroot,
+        shell=True,
+    )    
     
+    check_call(["qcmd", "-A", config.account, "--", "./case.build --skip-provenance-check"], cwd=caseroot)
+
     if submit:
-        check_call(
-            "module load python && ./case.submit",
-            cwd=caseroot,
-            shell=True,
-        )
+        check_call(["./case.submit"], cwd=caseroot)
 
 
 def open_dataset(case, stream='pop.h'):
     """access data from a case"""
     grid = pop_tools.get_grid('POP_gx1v7')
 
-    archive_root = f'{project.dir_scratch}/archive/{case}'
+    archive_root = f'{config.dir_scratch}/archive/{case}'
 
     rename_underscore2_vars = False
     if stream == 'pop.h':

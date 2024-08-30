@@ -1,6 +1,8 @@
 #!/bin/bash
 
-module load nco
+module load e4s
+spack env activate gcc
+spack load nco
 
 POP_R=${1}
 
