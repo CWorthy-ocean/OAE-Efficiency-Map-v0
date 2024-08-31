@@ -43,7 +43,6 @@ Details of this simulation are as follows:
 refcase = "g.e22.GOMIPECOIAF_JRA-1p4-2018.TL319_g17.SMYLE.005"
 refcaserest_root = f"{project.dir_project_root}/data/{refcase}/rest"
 cesm_tag = "release-cesm2.1.5"
-
 compset = "OMIP_DATM%JRA-1p4-2018_SLND_CICE_POP2%ECO_DROF%JRA-1p4-2018_SGLC_WW3_SIAC_SESP"
 res = "TL319_g17"
 
@@ -64,14 +63,10 @@ def create_oae_case(
     submit=False,
     curtail_output=True,
     queue="regular",
-    code_checkout=True,
 ):
     caseroot = f"{project.dir_caseroot_root}/{case}"
     assert not os.path.exists(caseroot) or clobber, f"Case {case} exists; caseroot:\n{caseroot}\n"
 
-    coderoot = os.path.join(project.dir_codes, cesm_tag)
-    if code_checkout:
-        cesm_tools.code_checkout("https://github.com/ESCOMP/CESM.git", project.dir_codes, cesm_tag)    
         
     rundir = f"{project.dir_scratch}/{case}"
     archive_root = f"{project.dir_scratch}/archive/{case}"
@@ -89,10 +84,12 @@ def create_oae_case(
             "--case", caseroot,
             "--res", res,
             "--machine", project.mach,
-            "--project", project.account,            
+            "--project", project.account,
+            "--queue", queue,
+            "--walltime", wallclock,
             "--run-unsupported"]),
         shell=True,
-        cwd=f"{coderoot}/cime/scripts",
+        cwd=f"{project.coderoot}/cime/scripts",
     )
 
     def xmlchange(arg, force=False):
@@ -155,7 +152,7 @@ def create_oae_case(
                 " ".join([
                     "module load python", 
                     "&&",
-                    f"{coderoot}/components/pop/externals/MARBL/MARBL_tools/./yaml_to_json.py",
+                    f"{project.coderoot}/components/pop/externals/MARBL/MARBL_tools/./yaml_to_json.py",
                     "-y",
                     f"{src}",
                     "-o",
@@ -266,18 +263,18 @@ def create_oae_case(
     #     shell=True,
     # )
 
-    # set ALT_CO2 tracers to CO2 tracers
-    check_call(
-        ["./set-alt-co2.sh", f"{rundir}/run/{refcase}.pop.r.{refdate}-00000.nc"],
-        cwd=scriptroot,
-    )
-
     
     check_call(
         "module load python && ./case.build",
         cwd=caseroot,
         shell=True,
     )
+
+    # set ALT_CO2 tracers to CO2 tracers
+    check_call(
+        ["./set-alt-co2.sh", f"{rundir}/run/{refcase}.pop.r.{refdate}-00000.nc"],
+        cwd=scriptroot,
+    )    
     
     if submit:
         check_call(

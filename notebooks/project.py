@@ -26,5 +26,7 @@ os.makedirs(dir_caseroot_root, exist_ok=True)
 cesm_inputdata = f"/global/cfs/projectdirs/m4746/Datasets/cesm-inputdata"
 os.makedirs(cesm_inputdata, exist_ok=True)
 
-
-
+#coderoot = f"{dir_codes}/cesm2.2.0"
+#coderoot = "/global/homes/m/mattlong/codes/cesm2.2.0"
+coderoot = "/global/u2/m/mattlong/codes/release-cesm2.1.5-SMYLE"
+assert os.path.exists(coderoot)
