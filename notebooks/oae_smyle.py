@@ -3,6 +3,8 @@ import shutil
 from glob import glob
 from subprocess import check_call
 
+import click
+
 import textwrap
 
 import cftime
@@ -66,7 +68,6 @@ def create_oae_case(
 ):
     caseroot = f"{project.dir_caseroot_root}/{case}"
     assert not os.path.exists(caseroot) or clobber, f"Case {case} exists; caseroot:\n{caseroot}\n"
-
         
     rundir = f"{project.dir_scratch}/{case}"
     archive_root = f"{project.dir_scratch}/archive/{case}"
@@ -84,6 +85,7 @@ def create_oae_case(
             "--case", caseroot,
             "--res", res,
             "--machine", project.mach,
+            "--compiler", "intel",            
             "--project", project.account,
             "--queue", queue,
             "--walltime", wallclock,
@@ -107,6 +109,7 @@ def create_oae_case(
     xmlchange("NTASKS_ROF=72")
     xmlchange("NTASKS_LND=72")
     xmlchange("NTASKS_ESP=72")
+    xmlchange("NTASKS_IAC=72")
 
     xmlchange("NTASKS_OCN=751")
     xmlchange("ROOTPE_OCN=72")
@@ -118,6 +121,7 @@ def create_oae_case(
     xmlchange("CICE_DECOMPSETTING='square-ice'")
 
     xmlchange("OCN_TRACER_MODULES='iage ecosys'")
+    xmlchange("DATM_PRESAERO='clim_1850'")
 
     xmlchange("POP_AUTO_DECOMP=FALSE")
     xmlchange("POP_BLCKX=9")
@@ -265,7 +269,7 @@ def create_oae_case(
 
     
     check_call(
-        "module load python && ./case.build",
+        "module load python && ./case.build --skip-provenance-check",
         cwd=caseroot,
         shell=True,
     )
@@ -392,3 +396,30 @@ def compute_additional_DIC_global_ts(ds):
     dao.attrs['units'] = dao.attrs['units'].replace('yr$^{-1}$', '').strip()
     return dao
 
+
+@click.command()
+@click.option('--case')
+@click.option('--alk-forcing-file')
+@click.option('--refdate')
+def main(case, alk_forcing_file, refdate):
+    print(case)
+    print(alk_forcing_file)
+    print(refdate)
+    print("=" * 80)
+    
+    create_oae_case(
+        case,
+        alk_forcing_file,
+        refdate=refdate,
+        stop_n=15,
+        stop_option="nyear",
+        wallclock="12:00:00",
+        resubmit=0,
+        clobber=False,
+        submit=False,
+        curtail_output=True,
+        queue="regular",
+    )
+
+if __name__ == "__main__":
+    main()
