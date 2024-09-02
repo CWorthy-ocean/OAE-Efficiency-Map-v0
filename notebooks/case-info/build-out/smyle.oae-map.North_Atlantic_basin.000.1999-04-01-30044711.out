@@ -1,0 +1,5 @@
+Usage: oae_smyle.py [OPTIONS]
+Try 'oae_smyle.py --help' for help.
+
+Error: No such option: --submit
+/var/spool/slurmd/job30044711/slurm_script: line 17: --clobber: command not found

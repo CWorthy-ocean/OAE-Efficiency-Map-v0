@@ -1,0 +1,28 @@
+smyle.oae-map.North_Atlantic_basin.000.1999-04-01
+/global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/data/alk-forcing/OAE-Efficiency-Map/alk-forcing-North_Atlantic_basin.000-1999-04.nc
+0347-04-01
+================================================================================
+Traceback (most recent call last):
+  File "/global/u2/m/mattlong/codes/oae-dor-global-efficiency/notebooks/oae_smyle.py", line 427, in <module>
+    main()
+  File "/global/homes/m/mattlong/.conda/envs/cworthy/lib/python3.12/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/global/homes/m/mattlong/.conda/envs/cworthy/lib/python3.12/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File "/global/homes/m/mattlong/.conda/envs/cworthy/lib/python3.12/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/global/homes/m/mattlong/.conda/envs/cworthy/lib/python3.12/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/global/u2/m/mattlong/codes/oae-dor-global-efficiency/notebooks/oae_smyle.py", line 412, in main
+    create_oae_case(
+  File "/global/u2/m/mattlong/codes/oae-dor-global-efficiency/notebooks/oae_smyle.py", line 70, in create_oae_case
+    assert not os.path.exists(caseroot) or clobber, f"Case {case} exists; caseroot:\n{caseroot}\n"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Case smyle.oae-map.North_Atlantic_basin.000.1999-04-01 exists; caseroot:
+/global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.North_Atlantic_basin.000.1999-04-01
+
+/var/spool/slurmd/job30044728/slurm_script: line 17: --clobber: command not found
