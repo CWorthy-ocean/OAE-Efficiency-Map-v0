@@ -1,0 +1,68 @@
+#!/bin/bash
+set -e
+
+module load python
+
+i=0
+pids=()
+
+cd /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.Southern_Ocean.032.1999-10-01.001
+./case.submit &> /global/u2/m/mattlong/codes/oae-dor-global-efficiency/notebooks/case-info/submit-out/smyle.oae-map.Southern_Ocean.032.1999-10-01.001.submit &
+
+pids[${i}]=$!
+i=$(($i+1))
+
+
+cd /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.Southern_Ocean.033.1999-10-01.001
+./case.submit &> /global/u2/m/mattlong/codes/oae-dor-global-efficiency/notebooks/case-info/submit-out/smyle.oae-map.Southern_Ocean.033.1999-10-01.001.submit &
+
+pids[${i}]=$!
+i=$(($i+1))
+
+
+cd /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.Southern_Ocean.034.1999-10-01.001
+./case.submit &> /global/u2/m/mattlong/codes/oae-dor-global-efficiency/notebooks/case-info/submit-out/smyle.oae-map.Southern_Ocean.034.1999-10-01.001.submit &
+
+pids[${i}]=$!
+i=$(($i+1))
+
+
+cd /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.Southern_Ocean.035.1999-10-01.001
+./case.submit &> /global/u2/m/mattlong/codes/oae-dor-global-efficiency/notebooks/case-info/submit-out/smyle.oae-map.Southern_Ocean.035.1999-10-01.001.submit &
+
+pids[${i}]=$!
+i=$(($i+1))
+
+
+cd /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.Southern_Ocean.036.1999-10-01.001
+./case.submit &> /global/u2/m/mattlong/codes/oae-dor-global-efficiency/notebooks/case-info/submit-out/smyle.oae-map.Southern_Ocean.036.1999-10-01.001.submit &
+
+pids[${i}]=$!
+i=$(($i+1))
+
+
+cd /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.Southern_Ocean.037.1999-10-01.001
+./case.submit &> /global/u2/m/mattlong/codes/oae-dor-global-efficiency/notebooks/case-info/submit-out/smyle.oae-map.Southern_Ocean.037.1999-10-01.001.submit &
+
+pids[${i}]=$!
+i=$(($i+1))
+
+
+cd /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.Southern_Ocean.038.1999-10-01.001
+./case.submit &> /global/u2/m/mattlong/codes/oae-dor-global-efficiency/notebooks/case-info/submit-out/smyle.oae-map.Southern_Ocean.038.1999-10-01.001.submit &
+
+pids[${i}]=$!
+i=$(($i+1))
+
+
+cd /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.Southern_Ocean.039.1999-10-01.001
+./case.submit &> /global/u2/m/mattlong/codes/oae-dor-global-efficiency/notebooks/case-info/submit-out/smyle.oae-map.Southern_Ocean.039.1999-10-01.001.submit &
+
+pids[${i}]=$!
+i=$(($i+1))
+
+
+for pid in ${pids[*]}; do
+    echo "waiting on ${pid}"
+    wait $pid
+done

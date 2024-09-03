@@ -1,0 +1,39 @@
+Unloading the cpe module is insufficient to restore the system defaults.
+Please run 'source
+/opt/cray/pe/cpe/23.12/restore_lmod_system_defaults.[csh|sh]'. 
+Running "module reset". Resetting modules to system default. The following $MODULEPATH directories have been removed: /opt/cray/pe/lmod/modulefiles/mpi/gnu/12.0/ofi/1.0/cray-mpich/8.0
+Did not find an alias or longname compset match for OMIP_DATM%JRA-1p4-2018_SLND_CICE_POP2%ECO_DROF%JRA-1p4-2018_SGLC_WW3_SIAC_SESP 
+Warning: missing non-idmap ROF2OCN_FMAPNAME for rof_grid, JRA025v2 and ocn_grid gx1v7 
+Compset forcing is 
+ATM component is  Data driven ATM interannual JRA55 forcing, v1.4, through 2018
+LND component is Stub land component
+ICE component is Sea ICE (cice) model version 5
+OCN component is POP2 Ecosystem
+ROF component is Data runoff modelJRA55 interannual forcing, v1.4, through 2018
+GLC component is Stub glacier (land ice) component
+WAV component is Wave Watch
+IAC component is Stub iac component
+ESP component is Stub external system processing (ESP) component
+Pes     specification file is /global/cfs/cdirs/m4746/Projects/OAE-Efficiency-Map/codes/cesm2.2.0/components/pop//cime_config/config_pes.xml
+Could not find machine match for 'nid004140-hsn0' or 'nid004140'
+Machine is perlmutter
+Pes setting: compset_match is _DATM.*_POP2 
+Pes setting: grid          is a%TL319_l%null_oi%gx1v7_r%JRA025v2_g%null_w%ww3a_z%null_m%gx1v7 
+Pes setting: compset       is OMIP_DATM%JRA-1p4-2018_SLND_CICE_POP2%ECO_DROF%JRA-1p4-2018_SGLC_WW3_SIAC_SESP 
+Pes setting: tasks       is {'NTASKS_OCN': -1, 'NTASKS_ICE': -1, 'NTASKS_CPL': -1, 'NTASKS_WAV': -1, 'NTASKS_ATM': -1, 'NTASKS_GLC': -1, 'NTASKS_LND': -1, 'NTASKS_ROF': -1} 
+Pes setting: threads     is {'NTHRDS_OCN': 1, 'NTHRDS_ICE': 1, 'NTHRDS_CPL': 1, 'NTHRDS_WAV': 1, 'NTHRDS_ATM': 1, 'NTHRDS_GLC': 1, 'NTHRDS_LND': 1, 'NTHRDS_ROF': 1} 
+Pes setting: rootpe      is {'ROOTPE_OCN': 0, 'ROOTPE_ICE': 0, 'ROOTPE_CPL': 0, 'ROOTPE_WAV': 0, 'ROOTPE_ATM': 0, 'ROOTPE_GLC': 0, 'ROOTPE_LND': 0, 'ROOTPE_ROF': 0} 
+Pes setting: pstrid      is {} 
+Pes other settings: {}
+Pes comments: Either did not recognize the resolution or the machine name specified
+ Compset is: OMIP_DATM%JRA-1p4-2018_SLND_CICE_POP2%ECO_DROF%JRA-1p4-2018_SGLC_WW3_SIAC_SESP 
+ Grid is: a%TL319_l%null_oi%gx1v7_r%JRA025v2_g%null_w%ww3a_z%null_m%gx1v7 
+ Components in compset are: ['datm', 'slnd', 'cice', 'pop', 'drof', 'sglc', 'ww3', 'siac', 'sesp'] 
+No charge_account info available, using value from PROJECT
+WARNING: No cesm Model version found.
+Batch_system_type is slurm
+job is case.run USER_REQUESTED_WALLTIME 12:00:00 USER_REQUESTED_QUEUE regular WALLTIME_FORMAT %H:%M:%S
+job is case.st_archive USER_REQUESTED_WALLTIME None USER_REQUESTED_QUEUE None WALLTIME_FORMAT %H:%M:%S
+ Creating Case directory /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.North_Atlantic_basin.001.1999-10-01.001
+copying /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.North_Atlantic_basin.001.1999-10-01.001/env_case.xml -> /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.North_Atlantic_basin.001.1999-10-01.001/LockedFiles
+slurmstepd: error: *** JOB 30069450 ON nid004140 CANCELLED AT 2024-09-02T22:39:50 ***

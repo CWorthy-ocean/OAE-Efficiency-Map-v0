@@ -281,12 +281,12 @@ def create_oae_case(
         cwd=scriptroot,
     )    
     
-    if submit:
-        check_call(
-            "module load python && ./case.submit",
-            cwd=caseroot,
-            shell=True,
-        )
+    #if submit:
+    #    check_call(
+    #        "module load python && ./case.submit",
+    #        cwd=caseroot,
+    #        shell=True,
+    #    )
 
 
 def open_dataset(case, stream='pop.h'):
@@ -402,9 +402,7 @@ def compute_additional_DIC_global_ts(ds):
 @click.option('--case')
 @click.option('--alk-forcing-file')
 @click.option('--refdate')
-@click.option('--submit')
-@click.option('--clobber')
-def main(case, alk_forcing_file, refdate, submit, clobber):
+def main(case, alk_forcing_file, refdate):
     print(case)
     print(alk_forcing_file)
     print(refdate)
@@ -418,8 +416,8 @@ def main(case, alk_forcing_file, refdate, submit, clobber):
         stop_option="nyear",
         wallclock="12:00:00",
         resubmit=0,
-        clobber=clobber,
-        submit=submit,
+        clobber=False,
+        submit=False,
         curtail_output=True,
         queue="regular",
     )

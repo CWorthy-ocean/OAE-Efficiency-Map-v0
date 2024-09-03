@@ -1,0 +1,25 @@
+#!/bin/bash
+#SBATCH -J build.smyle.oae-map.North_Atlantic_basin.000.1999-04-01.002
+#SBATCH -A m4746
+#SBATCH -e case-info/build-out/smyle.oae-map.North_Atlantic_basin.000.1999-04-01.002-%J.out
+#SBATCH -o case-info/build-out/smyle.oae-map.North_Atlantic_basin.000.1999-04-01.002-%J.out
+#SBATCH --time=00:30:00
+#SBATCH --mem=10GB
+#SBATCH --qos=debug
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --constraint=cpu
+
+module restore
+module load conda
+conda activate cworthy
+
+#python oae_smyle.py --case smyle.oae-map.North_Atlantic_basin.000.1999-04-01.002     #                    --alk-forcing-file /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/data/alk-forcing/OAE-Efficiency-Map/alk-forcing-North_Atlantic_basin.000-1999-04.nc     #                    --refdate 0347-04-01     #                    --submit False     #                    --clobber True
+
+module purge
+module restore
+module load python    
+
+cd /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.North_Atlantic_basin.000.1999-04-01.002
+./case.submit
+

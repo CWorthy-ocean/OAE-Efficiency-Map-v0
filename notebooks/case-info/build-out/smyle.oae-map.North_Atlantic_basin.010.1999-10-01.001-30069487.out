@@ -1,0 +1,4 @@
+Unloading the cpe module is insufficient to restore the system defaults.
+Please run 'source
+/opt/cray/pe/cpe/23.12/restore_lmod_system_defaults.[csh|sh]'. 
+slurmstepd: error: *** JOB 30069487 ON nid004110 CANCELLED AT 2024-09-02T22:39:50 ***

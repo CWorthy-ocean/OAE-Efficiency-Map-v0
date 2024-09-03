@@ -26,6 +26,7 @@ dependencies:
 - numpy
 - PyCO2SYS
 - pandas
+- papermill
 - pip
 - pop-tools
 - scipy

@@ -1,0 +1,19 @@
+#!/bin/bash
+#SBATCH -J build.smyle.oae-map.South.131.1999-10-01.001
+#SBATCH -A m4746
+#SBATCH -e case-info/build-out/smyle.oae-map.South.131.1999-10-01.001-%J.out
+#SBATCH -o case-info/build-out/smyle.oae-map.South.131.1999-10-01.001-%J.out
+#SBATCH --time=01:00:00
+#SBATCH --mem=12GB
+#SBATCH --qos=shared
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --constraint=cpu
+
+module purge
+module restore
+module load conda
+conda activate cworthy
+
+python oae_smyle.py --case smyle.oae-map.South.131.1999-10-01.001 --alk-forcing-file /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/data/alk-forcing/OAE-Efficiency-Map/alk-forcing-South.131-1999-10.nc --refdate 0347-10-01
+

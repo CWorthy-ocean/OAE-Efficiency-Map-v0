@@ -1,0 +1,467 @@
+Unloading the cpe module is insufficient to restore the system defaults.
+Please run 'source
+/opt/cray/pe/cpe/23.12/restore_lmod_system_defaults.[csh|sh]'. 
+Running "module reset". Resetting modules to system default. The following $MODULEPATH directories have been removed: /opt/cray/pe/lmod/modulefiles/mpi/gnu/12.0/ofi/1.0/cray-mpich/8.0
+NERSC_FAMILY_CONDA=conda
+HYDRA_LAUNCHER_EXTRA_ARGS=--external-launcher
+JPY_SESSION_NAME=/global/homes/m/mattlong/codes/oae-dor-global-efficiency/notebooks/Untitled.ipynb
+__LMOD_REF_COUNT_PE_LIBSCI_REQUIRED_PRODUCTS=PE_MPICH:1
+CRAY_LMOD_MPI=cray-mpich/8.0
+LMOD_FAMILY_CRAYPE_NETWORK_VERSION=false
+CONDA_SHLVL=1
+PYDEVD_USE_FRAME_EVAL=NO
+JUPYTERHUB_OAUTH_CLIENT_ALLOWED_SCOPES=[]
+MPICH_GPU_SUPPORT_ENABLED=1
+CRAYPE_LINK_TYPE=dynamic
+JUPYTERHUB_CLIENT_ID=jupyterhub-user-mattlong-perlmutter-login-node-base
+LD_LIBRARY_PATH=/usr/local/cuda-12.2/compat:/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/math_libs/12.2/lib64:/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/extras/CUPTI/lib64:/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/extras/Debugger/lib64:/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/nvvm/lib64:/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/lib64:/opt/cray/pe/papi/7.0.1.2/lib64:/opt/cray/libfabric/1.15.2.0/lib64
+CSHRCREAD=true
+CONDA_EXE=/global/common/software/nersc/pe/conda/24.1.0/Miniconda3-py311_23.11.0-2/bin/conda
+HOSTTYPE=x86_64
+CRAY_DSMML_ROOTDIR=/opt/cray/pe/dsmml/0.2.2
+PYTHONFAULTHANDLER=
+LMOD_FAMILY_CRAYPE_ACCEL=craype-accel-nvidia80
+CRAY_DSMML_DIR=/opt/cray/pe/dsmml/0.2.2/dsmml
+SLURM_NODEID=0
+SLURM_TASK_PID=1085048
+__LMOD_REF_COUNT_PATH=/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/compute-sanitizer:1;/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/bin:1;/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/libnvvp:1;/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/profilers/Nsight_Compute:1;/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/profilers/Nsight_Systems/bin:1;/opt/cray/pe/perftools/23.12.0/bin:1;/opt/cray/pe/papi/7.0.1.2/bin:1;/opt/cray/pe/craype/2.7.30/bin:1;/opt/cray/pe/mpich/8.1.28/ofi/gnu/12.3/bin:1;/opt/cray/pe/mpich/8.1.28/bin:1;/opt/cray/libfabric/1.15.2.0/bin:1;/global/common/software/nersc9/jupyter/ex/24-05/nersc-utils:1;/opt/nersc/pe/bin:1;/global/common/software/nersc/bin:1;/usr/local/bin:1;/usr/bin:1;/bin:1;/usr/lib/mit/bin:1;/opt/cray/pe/bin:1
+_ModuleTable002_=cmF5LWxpYnNjaSIsCm1waSA9ICJjcmF5LW1waWNoIiwKfSwKbVQgPSB7ClsiUHJnRW52LWdudSJdID0gewpmbiA9ICIvb3B0L2NyYXkvcGUvbG1vZC9tb2R1bGVmaWxlcy9jb3JlL1ByZ0Vudi1nbnUvOC41LjAubHVhIiwKZnVsbE5hbWUgPSAiUHJnRW52LWdudS84LjUuMCIsCmxvYWRPcmRlciA9IDUsCnByb3BUID0gewp0eXBlXyA9IHsKY3JheXBlID0gMSwKfSwKfSwKc3RhY2tEZXB0aCA9IDEsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJQcmdFbnYtZ251LzguNS4wIiwKd1YgPSAiXjAwMDAwMDA4LjAwMDAwMDAwNS4qemZpbmFsIiwKfSwKY29uZGEgPSB7CmZuID0gIi9vcHQvbmVyc2MvcGUvbW9kdWxlZmlsZXMvY29uZGEvTWluaWNvbmRhMy1weTMxMV8yMy4x
+PE_MPICH_GTL_DIR_amd_gfx90a=-L/opt/cray/pe/mpich/8.1.28/gtl/lib
+PE_LIBSCI_OMP_REQUIRES= 
+SSH_CONNECTION=128.55.206.108 17013 128.55.64.38 22
+NERSC_FAMILY_CRAYPE_ACCEL_VERSION=false
+LESSCLOSE=lessclose.sh %s %s
+CRAY_LD_LIBRARY_PATH=/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/math_libs/12.2/lib64:/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/lib64:/opt/cray/pe/perftools/23.12.0/lib64:/opt/cray/pe/mpich/8.1.28/ofi/gnu/12.3/lib:/opt/cray/pe/mpich/8.1.28/gtl/lib:/opt/cray/pe/libsci/23.12.5/GNU/12.3/x86_64/lib:/opt/cray/pe/dsmml/0.2.2/dsmml/lib
+JUPYTER_LOG_FILE=/global/homes/m/mattlong/.jupyter-perlmutter.log
+NERSC_FAMILY_CRAYPE_ACCEL=craype-accel-nvidia80
+SLURM_PRIO_PROCESS=0
+XKEYSYMDB=/usr/X11R6/lib/X11/XKeysymDB
+PE_ENV=GNU
+__LMOD_REF_COUNT_PE_DSMML_PKGCONFIG_LIBS=dsmml:1
+__LMOD_REF_COUNT_PE_FORTRAN_PKGCONFIG_LIBS=mpichf90:1
+LMOD_FAMILY_CRAYPE_CPU=craype-x86-milan
+CRAYPAT_LD_LIBRARY_PATH=/opt/cray/pe/perftools/23.12.0/lib64
+GCC_PREFIX=/usr/lib64/gcc/x86_64-suse-linux/12
+CRAY_LMOD_COMPILER=gnu/12.0
+LMOD_MODULERCFILE=/opt/cray/pe/cpe/23.12/modulerc.lua:/opt/nersc/pe/etc/lmod/modulerc.lua
+CRAY_DSMML_PREFIX=/opt/cray/pe/dsmml/0.2.2/dsmml
+PE_PRODUCT_LIST=CRAYPE:CRAYPE_X86_MILAN:PERFTOOLS:CRAYPAT:CRAY_HPC_SDK:CRAY_ACCEL
+LMOD_IGNORE_CACHE=1
+LMOD_FAMILY_MPI_VERSION=8.1.28
+CRAYPAT_ROOT=/opt/cray/pe/perftools/23.12.0
+LIBGL_ALWAYS_INDIRECT=1
+PE_PERFTOOLS_MPICH_LIBDIR=/opt/cray/pe/mpich/8.1.28/ofi/gnu/12.3/lib
+PE_MPICH_GTL_DIR_amd_gfx906=-L/opt/cray/pe/mpich/8.1.28/gtl/lib
+PE_LIBSCI_MODULE_NAME=cray-libsci/23.12.5
+I_MPI_HYDRA_BOOTSTRAP_EXEC_EXTRA_ARGS=--external-launcher
+LANG=en_US.UTF-8
+LMOD_SYSTEM_NAME=perlmutter
+TZ=America/Los_Angeles
+SLURM_SUBMIT_DIR=/global/u2/m/mattlong/codes/oae-dor-global-efficiency/notebooks
+NERSC_FAMILY_PRGENV=PrgEnv-gnu
+_CONDA_SET_ESMFMKFILE=/global/homes/m/mattlong/.conda/envs/cworthy/lib/esmf.mk
+PE_MPICH_GTL_DIR_amd_gfx908=-L/opt/cray/pe/mpich/8.1.28/gtl/lib
+PE_DSMML_MODULE_NAME=cray-dsmml
+WINDOWMANAGER=xterm
+_ModuleTable008_=b2QvbW9kdWxlZmlsZXMvY3JheXBlLXRhcmdldHMvZGVmYXVsdC9jcmF5cGUtbmV0d29yay1vZmkubHVhIiwKZnVsbE5hbWUgPSAiY3JheXBlLW5ldHdvcmstb2ZpIiwKbG9hZE9yZGVyID0gMywKcHJvcFQgPSB7fSwKc3RhY2tEZXB0aCA9IDAsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJjcmF5cGUtbmV0d29yay1vZmkiLAp3ViA9ICJNLip6ZmluYWwiLAp9LApbImNyYXlwZS14ODYtbWlsYW4iXSA9IHsKZm4gPSAiL29wdC9jcmF5L3BlL2xtb2QvbW9kdWxlZmlsZXMvY3JheXBlLXRhcmdldHMvZGVmYXVsdC9jcmF5cGUteDg2LW1pbGFuLmx1YSIsCmZ1bGxOYW1lID0gImNyYXlwZS14ODYtbWlsYW4iLApsb2FkT3JkZXIgPSAxLApwcm9wVCA9IHsKdHlwZV8gPSB7
+OMPI_MCA_plm_slurm_args=--external-launcher
+LESS=-M -I -R
+PE_MPICH_GTL_LIBS_nvidia70=-lmpi_gtl_cuda
+JAVA_ROOT=/usr/lib64/jvm/java
+LMOD_FAMILY_COMPILER_VERSION=12.3
+HOSTNAME=nid006459
+NERSC_FAMILY_CONDA_VERSION=Miniconda3-py311_23.11.0-2
+LMOD_SYSTEM_DEFAULT_MODULES=craype-x86-milan:craype-network-ofi:perftools-base:xpmem:PrgEnv-gnu:cpe:gpu
+CSHEDIT=emacs
+SLURM_JOB_LICENSES=u2:1
+ENVIRONMENT=BATCH
+GPG_TTY=not a tty
+LMOD_CASE_INDEPENDENT_SORTING=yes
+LESS_ADVANCED_PREPROCESSOR=no
+__LMOD_REF_COUNT_PE_MPICH_GENCOMPILERS_GNU=12.3:1
+COLORTERM=1
+GSETTINGS_SCHEMA_DIR_CONDA_BACKUP=
+_ModuleTable007_=YXlwZS8yLjcuMzAiLAp3ViA9ICJeMDAwMDAwMDIuMDAwMDAwMDA3LjAwMDAwMDAzMC4qemZpbmFsIiwKfSwKWyJjcmF5cGUtYWNjZWwtbnZpZGlhODAiXSA9IHsKZm4gPSAiL29wdC9jcmF5L3BlL2xtb2QvbW9kdWxlZmlsZXMvY3JheXBlLXRhcmdldHMvZGVmYXVsdC9jcmF5cGUtYWNjZWwtbnZpZGlhODAubHVhIiwKZnVsbE5hbWUgPSAiY3JheXBlLWFjY2VsLW52aWRpYTgwIiwKbG9hZE9yZGVyID0gMTQsCnByb3BUID0ge30sCnN0YWNrRGVwdGggPSAxLApzdGF0dXMgPSAiYWN0aXZlIiwKdXNlck5hbWUgPSAiY3JheXBlLWFjY2VsLW52aWRpYTgwIiwKd1YgPSAiTS4qemZpbmFsIiwKfSwKWyJjcmF5cGUtbmV0d29yay1vZmkiXSA9IHsKZm4gPSAiL29wdC9jcmF5L3BlL2xt
+CRAY_PERFTOOLS_VERSION=23.12.0
+LMOD_FAMILY_CONDA=conda
+CONDA_PREFIX=/global/homes/m/mattlong/.conda/envs/cworthy
+LMOD_FAMILY_CRAYPE_NETWORK=craype-network-ofi
+JAVA_HOME=/usr/lib64/jvm/java
+LMOD_FAMILY_CRAYPE_VERSION=2.7.30
+PE_XPMEM_PKGCONFIG_LIBS=cray-xpmem
+APP2_STATE=23.12.0
+SLURM_PROCID=0
+LMOD_FAMILY_GCC_COMPILER=gcc-native
+SLURM_JOB_GID=104006
+MACHTYPE=x86_64-suse-linux
+I_MPI_HYDRA_BOOTSTRAP=slurm
+LMOD_RC=/opt/nersc/pe/etc/lmod/lmodrc.lua
+__LMOD_REF_COUNT_LD_LIBRARY_PATH=/usr/local/cuda-12.2/compat:1;/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/math_libs/12.2/lib64:1;/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/extras/CUPTI/lib64:1;/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/extras/Debugger/lib64:1;/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/nvvm/lib64:1;/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/lib64:1;/opt/cray/pe/papi/7.0.1.2/lib64:1;/opt/cray/libfabric/1.15.2.0/lib64:2
+__LMOD_REF_COUNT_PKG_CONFIG_PATH=/opt/cray/pe/modulefiles/cudatoolkit:1;/opt/cray/pe/craype/2.7.30/pkg-config:1;/opt/cray/pe/dsmml/0.2.2/dsmml/lib/pkgconfig:1;/opt/cray/libfabric/1.15.2.0/lib64/pkgconfig:1
+XTPE_LINK_TYPE=dynamic
+NERSC_FAMILY_CRAYPE=craype
+JUPYTERHUB_OAUTH_ACCESS_SCOPES=["access:servers!server=mattlong/perlmutter-login-node-base", "access:servers!user=mattlong"]
+GNU_VERSION=12.3
+SLURMD_NODENAME=nid006459
+NERSC_FAMILY_CRAYPE_CPU=craype-x86-milan
+CRAY_CUDATOOLKIT_POST_LINK_OPTS=-L/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/lib64 -L/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/nvvm/lib64 -L/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/extras/Debugger/lib64 -L/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/extras/CUPTI/lib64 -L/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/math_libs/12.2/lib64 -Wl,--as-needed,-lcupti,-lcudart,--no-as-needed -lcuda
+JUPYTER_RUNTIME_DIR=/tmp/jupyter-runtime-5479ca66-4e28-4b76-b624-d8f815a27fd7
+PE_PKGCONFIG_PRODUCTS=PE_MPICH:PE_LIBSCI:PE_DSMML:PE_XPMEM
+_ModuleTable015_=cnNjL3BlL21vZHVsZWZpbGVzX2hvdGZpeGVzIgosICIvb3B0L25lcnNjL3BlL21vZHVsZWZpbGVzIiwgIi91c3Ivc2hhcmUvbG1vZC9sbW9kL21vZHVsZWZpbGVzL0NvcmUiLCAiL29wdC9jcmF5L21vZHVsZWZpbGVzIiwKfSwKc3lzdGVtQmFzZU1QQVRIID0gIi9vcHQvY3JheS9wZS9tb2R1bGVmaWxlcy9MaW51eDovb3B0L2NyYXkvcGUvbW9kdWxlZmlsZXMvQ29yZTovb3B0L2NyYXkvcGUvbG1vZC9sbW9kL21vZHVsZWZpbGVzL0NvcmU6L29wdC9jcmF5L3BlL2xtb2QvbW9kdWxlZmlsZXMvY29yZTovb3B0L2NyYXkvcGUvbG1vZC9tb2R1bGVmaWxlcy9jcmF5cGUtdGFyZ2V0cy9kZWZhdWx0Oi9nbG9iYWwvY29tbW9uL3NvZnR3YXJlL25lcnNjL3BlL21vZHVsZWZpbGVzX2hv
+SLURM_JOB_END_TIME=1725314510
+CRAY_MPICH_BASEDIR=/opt/cray/pe/mpich/8.1.28/ofi
+HUGETLB_VERBOSE=0
+PE_MPICH_GTL_DIR_nvidia80=-L/opt/cray/pe/mpich/8.1.28/gtl/lib
+_ModuleTable004_=a0RlcHRoID0gMCwKc3RhdHVzID0gImFjdGl2ZSIsCnVzZXJOYW1lID0gImNwZSIsCndWID0gIl4wMDAwMDAyMy4wMDAwMDAwMTIuKnpmaW5hbCIsCn0sClsiY3JheS1kc21tbCJdID0gewpmbiA9ICIvb3B0L2NyYXkvcGUvbG1vZC9tb2R1bGVmaWxlcy9jb3JlL2NyYXktZHNtbWwvMC4yLjIubHVhIiwKZnVsbE5hbWUgPSAiY3JheS1kc21tbC8wLjIuMiIsCmxvYWRPcmRlciA9IDYsCnByb3BUID0ge30sCnN0YWNrRGVwdGggPSAxLApzdGF0dXMgPSAiYWN0aXZlIiwKdXNlck5hbWUgPSAiY3JheS1kc21tbC8wLjIuMiIsCndWID0gIl4wMDAwMDAwMC4wMDAwMDAwMDIuMDAwMDAwMDAyLip6ZmluYWwiLAp9LApbImNyYXktbGlic2NpIl0gPSB7CmZuID0gIi9vcHQvY3JheS9wZS9s
+PE_LIBSCI_GENCOMPILERS_GNU_x86_64=12.3
+MINICOM=-c on
+SLURM_TASKS_PER_NODE=1
+PRTE_MCA_plm_slurm_args=--external-launcher
+PE_MPICH_PKGCONFIG_VARIABLES=PE_MPICH_GTL_DIR_@accelerator@:PE_MPICH_GTL_LIBS_@accelerator@
+ESMFMKFILE=/global/homes/m/mattlong/.conda/envs/cworthy/lib/esmf.mk
+_CE_M=
+PE_MPICH_PKGCONFIG_LIBS=mpich
+OSTYPE=linux
+NERSC_FAMILY_LIBSCI=cray-libsci
+CRAY_PE_LIBSCI_VERSION=23.12.5
+JUPYTERHUB_ACTIVITY_URL=https://jupyter.nersc.gov/hub/api/users/mattlong/activity
+XDG_SESSION_ID=96490
+PROJ_DATA=/global/homes/m/mattlong/.conda/envs/cworthy/share/proj
+CRAY_DSMML_VER=0.2.2
+JUPYTERHUB_SERVICE_URL=http://0.0.0.0:52817/user/mattlong/perlmutter-login-node-base/
+SLURM_NNODES=1
+USER=mattlong
+JUPYTERHUB_BASE_URL=/
+PAGER=cat
+NERSC_FAMILY_GCC_COMPILER=gcc-native
+NERSC_FAMILY_COMPILER_VERSION=12.3
+LMOD_FAMILY_PRGENV_VERSION=8.5.0
+LMOD_FAMILY_LIBSCI=cray-libsci
+MAN_POSIXLY_CORRECT=1
+FORCE_COLOR=1
+_ModuleTable012_=Mi4wIiwKbG9hZE9yZGVyID0gMTEsCnByb3BUID0gewp0eXBlXyA9IHsKZGV2ID0gMSwKfSwKfSwKc3RhY2tEZXB0aCA9IDEsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJwZXJmdG9vbHMtYmFzZS8yMy4xMi4wIiwKd1YgPSAiXjAwMDAwMDIzLjAwMDAwMDAxMi4qemZpbmFsIiwKfSwKeHBtZW0gPSB7CmZuID0gIi9vcHQvY3JheS9tb2R1bGVmaWxlcy94cG1lbS8yLjYuMi0yLjVfMi4zOF9fZ2QwNjdjM2Yuc2hhc3RhIiwKZnVsbE5hbWUgPSAieHBtZW0vMi42LjItMi41XzIuMzhfX2dkMDY3YzNmLnNoYXN0YSIsCmxvYWRPcmRlciA9IDQsCnByb3BUID0ge30sCnN0YWNrRGVwdGggPSAwLApzdGF0dXMgPSAiYWN0aXZlIiwKdXNlck5hbWUgPSAieHBtZW0iLAp3ViA9
+PE_MPICH_GTL_LIBS_ponteVecchio=-lmpi_gtl_ze
+CRAY_CPU_TARGET=x86-milan
+PE_GCC_LEVEL=12
+PE_LIBSCI_VOLATILE_PRGENV=GNU
+SLURM_JOB_START_TIME=1725314450
+PKGCONFIG_ENABLED=1
+__LMOD_REF_COUNT_MODULEPATH=/opt/cray/pe/lmod/modulefiles/perftools/23.12.0:1;/opt/cray/pe/lmod/modulefiles/comnet/gnu/12.0/ofi/1.0:1;/opt/cray/pe/lmod/modulefiles/mix_compilers:1;/opt/cray/pe/lmod/modulefiles/compiler/gnu/12.0:1;/opt/cray/pe/lmod/modulefiles/mpi/gnu/12.0/ofi/1.0/cray-mpich/8.0:1;/opt/cray/pe/lmod/modulefiles/net/ofi/1.0:1;/opt/cray/pe/lmod/modulefiles/cpu/x86-milan/1.0:1;/opt/cray/pe/modulefiles/Linux:1;/opt/cray/pe/modulefiles/Core:1;/opt/cray/pe/lmod/lmod/modulefiles/Core:1;/opt/cray/pe/lmod/modulefiles/core:1;/opt/cray/pe/lmod/modulefiles/craype-targets/default:1;/global/common/software/nersc/pe/modulefiles_hotfixes:1;/opt/nersc/pe/modulefiles:1;/usr/share/lmod/lmod/modulefiles/Core:1;/opt/cray/modulefiles:1
+NERSC_FAMILY_CRAYPE_NETWORK=craype-network-ofi
+MORE=-sl
+CRAY_PERFTOOLS_PREFIX=/opt/cray/pe/perftools/23.12.0
+PE_FORTRAN_PKGCONFIG_LIBS=mpichf90
+__LMOD_REF_COUNT_CRAY_LD_LIBRARY_PATH=/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/math_libs/12.2/lib64:1;/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/lib64:1;/opt/cray/pe/perftools/23.12.0/lib64:1;/opt/cray/pe/mpich/8.1.28/ofi/gnu/12.3/lib:1;/opt/cray/pe/mpich/8.1.28/gtl/lib:1;/opt/cray/pe/libsci/23.12.5/GNU/12.3/x86_64/lib:1;/opt/cray/pe/dsmml/0.2.2/dsmml/lib:1
+GCC_VERSION=12.3
+JPY_PARENT_PID=798960
+PWD=/global/u2/m/mattlong/codes/oae-dor-global-efficiency/notebooks
+PE_MPICH_GTL_DIR_ponteVecchio=-L/opt/cray/pe/mpich/8.1.28/gtl/lib
+PE_MPICH_GTL_DIR_nvidia70=-L/opt/cray/pe/mpich/8.1.28/gtl/lib
+CRAY_TCMALLOC_MEMFS_FORCE=1
+SLURM_JOB_NODELIST=nid006459
+HOME=/global/homes/m/mattlong
+SLURM_CLUSTER_NAME=perlmutter
+CONDA_PYTHON_EXE=/global/common/software/nersc/pe/conda/24.1.0/Miniconda3-py311_23.11.0-2/bin/python
+CRAY_ACCEL_VENDOR=nvidia
+PELOCAL_PRGENV=true
+NERSC_HOST=perlmutter
+PE_LIBSCI_REQUIRED_PRODUCTS=PE_MPICH
+CRAY_PE_LIBSCI_PREFIX_DIR=/opt/cray/pe/libsci/23.12.5/GNU/12.3/x86_64
+PE_MPICH_GTL_LIBS_amd_gfx942=-lmpi_gtl_hsa
+SLURM_NODELIST=nid006459
+LMOD_SYSHOST=perlmutter
+PE_MPICH_GTL_LIBS_amd_gfx940=-lmpi_gtl_hsa
+HOST=login29
+CLICOLOR=1
+SSH_CLIENT=128.55.206.108 17013 22
+__LMOD_REF_COUNT_PE_GNU_FIXED_PKGCONFIG_PATH=/opt/cray/pe/mpich/8.1.28/ofi/gnu/12.3/lib/pkgconfig:1
+LMOD_VERSION=8.7.31
+__LMOD_REF_COUNT_LMOD_MODULERCFILE=/opt/cray/pe/cpe/23.12/modulerc.lua:1;/opt/nersc/pe/etc/lmod/modulerc.lua:1
+CUDA_HOME=/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2
+XNLSPATH=/usr/X11R6/lib/X11/nls
+NERSC_FAMILY_MPI=cray-mpich
+PE_MPICH_FORTRAN_PKGCONFIG_LIBS=mpichf90
+CPATH=/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/math_libs/12.2/include:/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/include
+LMOD_FAMILY_HARDWARE_VERSION=1.0
+MPICH_OFI_CXI_COUNTER_REPORT=0
+SLURM_NTASKS=1
+PE_LIBSCI_PKGCONFIG_LIBS=libsci_mpi:libsci
+NERSC_FAMILY_GCC_COMPILER_VERSION=12.3
+XDG_SESSION_TYPE=tty
+SDK_HOME=/usr/lib64/jvm/java
+NERSC_LMOD_CONFIGDIR=/opt/nersc/pe/etc/lmod
+CRAY_LMOD_CPU=x86-milan/1.0
+PE_MPICH_GTL_LIBS_nvidia80=-lmpi_gtl_cuda
+PE_LIBSCI_OMP_REQUIRES_openmp=_mp
+LMOD_FAMILY_CRAYPE_CPU_VERSION=false
+NERSC_FAMILY_LIBSCI_VERSION=23.12.5
+JUPYTERHUB_USER=mattlong
+SLURM_JOB_CPUS_PER_NODE=256
+GCC_PATH=/usr/bin
+CRAY_CUDATOOLKIT_DIR=/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2
+BASH_ENV=/opt/cray/pe/lmod/lmod/init/bash
+XDG_DATA_DIRS=/usr/share
+__LMOD_REF_COUNT_PE_MPICH_FORTRAN_PKGCONFIG_LIBS=mpichf90:1
+SLURM_TOPOLOGY_ADDR=nid006459
+LMOD_FAMILY_GCC_COMPILER_VERSION=12.3
+CRAY_LMOD_NET=ofi/1.0
+NVHPC_CUDA_HOME=/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2
+__LMOD_REF_COUNT_PE_PKGCONFIG_PRODUCTS=PE_MPICH:1;PE_LIBSCI:1;PE_DSMML:1;PE_XPMEM:1
+PE_MPICH_MODULE_NAME=cray-mpich
+_CE_CONDA=
+LIBGL_DEBUG=quiet
+GSETTINGS_SCHEMA_DIR=/global/homes/m/mattlong/.conda/envs/cworthy/share/glib-2.0/schemas
+LMOD_FAMILY_CRAYPE_ACCEL_VERSION=false
+PE_LIBSCI_VOLATILE_PKGCONFIG_PATH=/opt/cray/pe/libsci/23.12.5/@PRGENV@/@PE_LIBSCI_GENCOMPS@/@PE_LIBSCI_TARGET@/lib/pkgconfig
+JDK_HOME=/usr/lib64/jvm/java
+__LMOD_REF_COUNT_PE_MPICH_FIXED_PRGENV=GNU:1
+CLICOLOR_FORCE=1
+PE_MPICH_GTL_DIR_amd_gfx940=-L/opt/cray/pe/mpich/8.1.28/gtl/lib
+PE_MPICH_GTL_DIR_amd_gfx942=-L/opt/cray/pe/mpich/8.1.28/gtl/lib
+FI_CXI_RX_MATCH_MODE=hybrid
+SLURM_JOB_NAME=build.smyle.oae-map.North_Atlantic_basin.000.1999-04-01.001
+PROFILEREAD=true
+TMPDIR=/tmp
+PERFTOOLS_VERSION=23.12.0
+JUPYTERHUB_ROOT_DIR=/
+LMOD_sys=Linux
+_ModuleTable010_=ewpmbiA9ICIvb3B0L2NyYXkvcGUvbG1vZC9tb2R1bGVmaWxlcy9jb3JlL2djYy1uYXRpdmUvMTIuMy5sdWEiLApmdWxsTmFtZSA9ICJnY2MtbmF0aXZlLzEyLjMiLApsb2FkT3JkZXIgPSAxMCwKcHJvcFQgPSB7fSwKc3RhY2tEZXB0aCA9IDEsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJnY2MtbmF0aXZlLzEyLjMiLAp3ViA9ICJeMDAwMDAwMTIuMDAwMDAwMDAzLip6ZmluYWwiLAp9LApncHUgPSB7CmZuID0gIi9vcHQvbmVyc2MvcGUvbW9kdWxlZmlsZXMvZ3B1LzEuMC5sdWEiLApmdWxsTmFtZSA9ICJncHUvMS4wIiwKbG9hZE9yZGVyID0gMTUsCnByb3BUID0ge30sCnN0YWNrRGVwdGggPSAwLApzdGF0dXMgPSAiYWN0aXZlIiwKdXNlck5hbWUgPSAiZ3B1IiwK
+PE_PKGCONFIG_LIBS=cudatoolkit_12.2:mpich:libsci_mpi:libsci:dsmml
+CRAY_ACCEL_TARGET=nvidia80
+SLURM_JOBID=30067993
+CRAY_PE_LIBSCI_PREFIX=/opt/cray/pe/libsci/23.12.5/GNU/12.3/x86_64
+_ModuleTable001_=X01vZHVsZVRhYmxlXyA9IHsKTVR2ZXJzaW9uID0gMywKY19yZWJ1aWxkVGltZSA9IGZhbHNlLApjX3Nob3J0VGltZSA9IGZhbHNlLApkZXB0aFQgPSB7fSwKZmFtaWx5ID0gewpQcmdFbnYgPSAiUHJnRW52LWdudSIsCmNvbXBpbGVyID0gImdjYy1uYXRpdmUiLApjb25kYSA9ICJjb25kYSIsCmNyYXlwZSA9ICJjcmF5cGUiLApjcmF5cGVfYWNjZWwgPSAiY3JheXBlLWFjY2VsLW52aWRpYTgwIiwKY3JheXBlX2NwdSA9ICJjcmF5cGUteDg2LW1pbGFuIiwKY3JheXBlX25ldHdvcmsgPSAiY3JheXBlLW5ldHdvcmstb2ZpIiwKY3VkYXRvb2xraXQgPSAiY3VkYXRvb2xraXQiLApnY2NfY29tcGlsZXIgPSAiZ2NjLW5hdGl2ZSIsCmhhcmR3YXJlID0gImdwdSIsCmxpYnNjaSA9ICJj
+PROJ_NETWORK=ON
+LMOD_FAMILY_HARDWARE=gpu
+LOADEDMODULES=craype-x86-milan:libfabric/1.15.2.0:craype-network-ofi:xpmem/2.6.2-2.5_2.38__gd067c3f.shasta:PrgEnv-gnu/8.5.0:cray-dsmml/0.2.2:cray-libsci/23.12.5:cray-mpich/8.1.28:craype/2.7.30:gcc-native/12.3:perftools-base/23.12.0:cpe/23.12:cudatoolkit/12.2:craype-accel-nvidia80:gpu/1.0:conda/Miniconda3-py311_23.11.0-2
+LMOD_AVAIL_STYLE=grouped:system
+CRAY_CUDATOOLKIT_INCLUDE_OPTS=-I/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/include -I/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/nvvm/include -I/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/extras/Debugger/include -I/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/extras/CUPTI/include -I/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/math_libs/12.2/include
+CRAYPE_NETWORK_TARGET=ofi
+JUPYTERHUB_OAUTH_SCOPES=["access:servers!server=mattlong/perlmutter-login-node-base", "access:servers!user=mattlong"]
+_ModuleTable006_=cGljaC84LjEuMjgiLApsb2FkT3JkZXIgPSA4LApwcm9wVCA9IHsKdHlwZV8gPSB7Cm1waSA9IDEsCn0sCn0sCnN0YWNrRGVwdGggPSAxLApzdGF0dXMgPSAiYWN0aXZlIiwKdXNlck5hbWUgPSAiY3JheS1tcGljaC84LjEuMjgiLAp3ViA9ICJeMDAwMDAwMDguMDAwMDAwMDAxLjAwMDAwMDAyOC4qemZpbmFsIiwKfSwKY3JheXBlID0gewpmbiA9ICIvb3B0L2NyYXkvcGUvbG1vZC9tb2R1bGVmaWxlcy9jb3JlL2NyYXlwZS8yLjcuMzAubHVhIiwKZnVsbE5hbWUgPSAiY3JheXBlLzIuNy4zMCIsCmxvYWRPcmRlciA9IDksCnByb3BUID0gewp0eXBlXyA9IHsKY29tcGlsZXIgPSAxLAp9LAp9LApzdGFja0RlcHRoID0gMSwKc3RhdHVzID0gImFjdGl2ZSIsCnVzZXJOYW1lID0gImNy
+__LMOD_REF_COUNT_MANPATH=/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/doc/man:1;/opt/cray/pe/perftools/23.12.0/man:1;/opt/cray/pe/papi/7.0.1.2/share/pdoc/man:1;/opt/cray/pe/craype/2.7.30/man:1;/opt/cray/pe/mpich/8.1.28/ofi/man:1;/opt/cray/pe/mpich/8.1.28/man/mpich:1;/opt/cray/pe/libsci/23.12.5/share/man:1;/opt/cray/pe/dsmml/0.2.2/dsmml/man:1;/opt/cray/libfabric/1.15.2.0/share/man:1;/opt/cray/pe/lmod/lmod/share/man:1;/usr/local/man:1;/usr/share/man:1;/usr/man:1
+SCRATCH=/pscratch/sd/m/mattlong
+CFS=/global/cfs/cdirs
+JUPYTERHUB_SERVICE_PREFIX=/user/mattlong/perlmutter-login-node-base/
+NERSC_FAMILY_CRAYPE_CPU_VERSION=false
+_ModuleTable003_=MS4wLTIubHVhIiwKZnVsbE5hbWUgPSAiY29uZGEvTWluaWNvbmRhMy1weTMxMV8yMy4xMS4wLTIiLApsb2FkT3JkZXIgPSAxNiwKcHJvcFQgPSB7fSwKc3RhY2tEZXB0aCA9IDAsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJjb25kYSIsCndWID0gIl5taW5pY29uZGEuMDAwMDAwMDAzLip5LjAwMDAwMDMxMS4qXy4wMDAwMDAwMjMuMDAwMDAwMDExLip6ZmluYWwtLjAwMDAwMDAwMi4qemZpbmFsIiwKfSwKY3BlID0gewpmbiA9ICIvb3B0L2NyYXkvcGUvbG1vZC9tb2R1bGVmaWxlcy9jb3JlL2NwZS8yMy4xMi5sdWEiLApmdWxsTmFtZSA9ICJjcGUvMjMuMTIiLApsb2FkT3JkZXIgPSAxMiwKcHJvcFQgPSB7CnR5cGVfID0gewpjcmF5cGUgPSAxLAp9LAp9LApzdGFj
+SLURM_JOB_QOS=regular_1
+LMOD_ROOT=/opt/cray/pe/lmod
+SLURM_TOPOLOGY_ADDR_PATTERN=node
+CONDA_PROMPT_MODIFIER=(cworthy) 
+PAT_RT_PERFCTR_DISABLE_COMPONENTS=nvml,rocm_smi
+FROM_HEADER=
+CRAY_MPICH_ROOTDIR=/opt/cray/pe/mpich/8.1.28
+NERSC_PYMON_UUID=9c2c3fda-cd71-488e-a53d-7b8973b6f795
+_ModuleTable013_=ICJeMDAwMDAwMDIuMDAwMDAwMDA2LjAwMDAwMDAwMi4qemZpbmFsLS4wMDAwMDAwMDIuMDAwMDAwMDA1LipfLjAwMDAwMDAwMi4wMDAwMDAwMzguKl8uKl8uKmdkLjAwMDAwMDA2Ny4qYy4wMDAwMDAwMDMuKmYuKnNoYXN0YS4qemZpbmFsIiwKfSwKfSwKbXBhdGhBID0gewoiL29wdC9jcmF5L3BlL2xtb2QvbW9kdWxlZmlsZXMvcGVyZnRvb2xzLzIzLjEyLjAiCiwgIi9vcHQvY3JheS9wZS9sbW9kL21vZHVsZWZpbGVzL2NvbW5ldC9nbnUvMTIuMC9vZmkvMS4wIgosICIvb3B0L2NyYXkvcGUvbG1vZC9tb2R1bGVmaWxlcy9taXhfY29tcGlsZXJzIgosICIvb3B0L2NyYXkvcGUvbG1vZC9tb2R1bGVmaWxlcy9jb21waWxlci9nbnUvMTIuMCIKLCAiL29wdC9jcmF5L3BlL2xtb2Qv
+MAIL=/var/spool/mail/mattlong
+JUPYTERHUB_SERVER_NAME=perlmutter-login-node-base
+SLURM_CPUS_ON_NODE=256
+NERSC_FAMILY_HARDWARE=gpu
+NERSC_FAMILY_MPI_VERSION=8.1.28
+NERSC_FAMILY_CUDATOOLKIT_VERSION=12.2
+SLURM_JOB_NUM_NODES=1
+_ModuleTable016_=dGZpeGVzOi9vcHQvbmVyc2MvcGUvbW9kdWxlZmlsZXM6L3Vzci9zaGFyZS9sbW9kL2xtb2QvbW9kdWxlZmlsZXMvQ29yZTovb3B0L2NyYXkvbW9kdWxlZmlsZXMiLAp9Cg==
+SLURM_MEM_PER_NODE=1024
+LESSKEY=/etc/lesskey.bin
+_ModuleTable009_=CmNyYXlwZSA9IDEsCn0sCn0sCnN0YWNrRGVwdGggPSAwLApzdGF0dXMgPSAiYWN0aXZlIiwKdXNlck5hbWUgPSAiY3JheXBlLXg4Ni1taWxhbiIsCndWID0gIk0uKnpmaW5hbCIsCn0sCmN1ZGF0b29sa2l0ID0gewpmbiA9ICIvb3B0L2NyYXkvcGUvbG1vZC9tb2R1bGVmaWxlcy9jb3JlL2N1ZGF0b29sa2l0LzEyLjIubHVhIiwKZnVsbE5hbWUgPSAiY3VkYXRvb2xraXQvMTIuMiIsCmxvYWRPcmRlciA9IDEzLApwcm9wVCA9IHsKYXJjaCA9IHsKZ3B1ID0gMSwKfSwKfSwKc3RhY2tEZXB0aCA9IDEsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJjdWRhdG9vbGtpdCIsCndWID0gIl4wMDAwMDAxMi4wMDAwMDAwMDIuKnpmaW5hbCIsCn0sClsiZ2NjLW5hdGl2ZSJdID0g
+TERM=xterm-color
+SHELL=/bin/bash
+CRAY_MPICH_VER=8.1.28
+NERSC_FAMILY_CRAYPE_NETWORK_VERSION=false
+LMOD_ADMIN_FILE=/opt/nersc/pe/etc/lmod/admin.list
+XDG_SESSION_CLASS=user
+PE_MPICH_FIXED_PRGENV=GNU
+LMOD_SITE_NAME=NERSC
+LMOD_FAMILY_CONDA_VERSION=Miniconda3-py311_23.11.0-2
+NERSC_FAMILY_COMPILER=gcc-native
+LMOD_FAMILY_PRGENV=PrgEnv-gnu
+MPLBACKEND=module://matplotlib_inline.backend_inline
+CRAY_PE_LIBSCI_BASE_DIR=/opt/cray/pe/libsci/23.12.5
+SLURM_JOB_UID=104006
+_ModuleTable_Sz_=16
+NERSC_JUPYTER=1
+__LMOD_REF_COUNT_CPATH=/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/math_libs/12.2/include:1;/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/include:1
+FI_MR_CACHE_MONITOR=userfaultfd
+NERSC_FAMILY_CUDATOOLKIT=cudatoolkit
+SLURM_JOB_PARTITION=regular_milan_ss11
+JUPYTERHUB_DEFAULT_URL=/lab/tree/global/homes/m/mattlong
+LMOD_FAMILY_COMPILER=gcc-native
+SLURM_SCRIPT_CONTEXT=prolog_task
+CRAY_DSMML_BASEDIR=/opt/cray/pe/dsmml/0.2.2
+CRAY_XPMEM_POST_LINK_OPTS=-L/opt/cray/xpmem/2.6.2-2.5_2.38__gd067c3f.shasta/lib64
+CRAY_CUDATOOLKIT_PREFIX=/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2
+PE_MPICH_GENCOMPILERS_GNU=12.3
+LMOD_FAMILY_CUDATOOLKIT_VERSION=12.2
+LMOD_FAMILY_CUDATOOLKIT=cudatoolkit
+SLURM_JOB_USER=mattlong
+SLURM_NPROCS=1
+JUPYTERHUB_API_URL=https://jupyter.nersc.gov/hub/api
+CUDATOOLKIT_HOME=/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2
+SHLVL=3
+SLURM_SUBMIT_HOST=login29
+G_FILENAME_ENCODING=@locale,UTF-8,ISO-8859-15,CP1252
+PYTHONPATH=/opt/nersc/pymon
+SLURM_JOB_ACCOUNT=m4746
+JUPYTERHUB_COOKIE_HOST_PREFIX_ENABLED=0
+GIT_PYTHON_REFRESH=quiet
+JUPYTERHUB_HOST=
+NCCL_NET_GDR_LEVEL=PHB
+CRAY_CUDATOOLKIT_VERSION=23.9_12.2
+MANPATH=/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/doc/man:/opt/cray/pe/perftools/23.12.0/man:/opt/cray/pe/papi/7.0.1.2/share/pdoc/man:/opt/cray/pe/craype/2.7.30/man:/opt/cray/pe/mpich/8.1.28/ofi/man:/opt/cray/pe/mpich/8.1.28/man/mpich:/opt/cray/pe/libsci/23.12.5/share/man:/opt/cray/pe/dsmml/0.2.2/dsmml/man:/opt/cray/libfabric/1.15.2.0/share/man:/opt/cray/pe/lmod/lmod/share/man:/usr/local/man:/usr/share/man:/usr/man
+NERSC_FAMILY_CRAYPE_VERSION=2.7.30
+CRAY_DSMML_VERSION=0.2.2
+JPY_API_TOKEN=88576f9a4fcd410893b7749add8887e4
+MPICH_DIR=/opt/cray/pe/mpich/8.1.28/ofi/gnu/12.3
+HYDRA_BOOTSTRAP=slurm
+PE_MPICH_GTL_LIBS_nvidia90=-lmpi_gtl_cuda
+MODULEPATH=/opt/cray/pe/lmod/modulefiles/perftools/23.12.0:/opt/cray/pe/lmod/modulefiles/comnet/gnu/12.0/ofi/1.0:/opt/cray/pe/lmod/modulefiles/mix_compilers:/opt/cray/pe/lmod/modulefiles/compiler/gnu/12.0:/opt/cray/pe/lmod/modulefiles/mpi/gnu/12.0/ofi/1.0/cray-mpich/8.0:/opt/cray/pe/lmod/modulefiles/net/ofi/1.0:/opt/cray/pe/lmod/modulefiles/cpu/x86-milan/1.0:/opt/cray/pe/modulefiles/Linux:/opt/cray/pe/modulefiles/Core:/opt/cray/pe/lmod/lmod/modulefiles/Core:/opt/cray/pe/lmod/modulefiles/core:/opt/cray/pe/lmod/modulefiles/craype-targets/default:/global/common/software/nersc/pe/modulefiles_hotfixes:/opt/nersc/pe/modulefiles:/usr/share/lmod/lmod/modulefiles/Core:/opt/cray/modulefiles
+CRAY_MPICH_DIR=/opt/cray/pe/mpich/8.1.28/ofi/gnu/12.3
+NERSC_FAMILY_HARDWARE_VERSION=1.0
+SLURM_GTIDS=0
+LMOD_FAMILY_CRAYPE=craype
+LOGNAME=mattlong
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/104006/bus
+CRAY_MPICH_VERSION=8.1.28
+JUPYTERHUB_OAUTH_CALLBACK_URL=/user/mattlong/perlmutter-login-node-base/oauth_callback
+MODULEPATH_ROOT=/opt/cray/pe/modulefiles
+LMOD_PACKAGE_PATH=/opt/nersc/pe/etc/lmod/sitepackages
+PSCRATCH=/pscratch/sd/m/mattlong
+PE_MPICH_GTL_LIBS_amd_gfx906=-lmpi_gtl_hsa
+PE_DSMML_PKGCONFIG_LIBS=dsmml
+JRE_HOME=/usr/lib64/jvm/java
+PE_LIBSCI_PKGCONFIG_VARIABLES=PE_LIBSCI_OMP_REQUIRES_@openmp@:PE_SCI_EXT_LIBPATH:PE_SCI_EXT_LIBNAME
+MPICH_MPIIO_DVS_MAXNODES=24
+JUPYTERHUB_API_TOKEN=88576f9a4fcd410893b7749add8887e4
+XDG_CONFIG_DIRS=/global/common/software/nersc9/jupyter/ex/24-05/etc/jupytext:/etc/xdg
+PATH=/global/homes/m/mattlong/.conda/envs/cworthy/bin:/global/common/software/nersc/pe/conda/24.1.0/Miniconda3-py311_23.11.0-2/condabin:/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/compute-sanitizer:/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/bin:/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/cuda/12.2/libnvvp:/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/profilers/Nsight_Compute:/opt/nvidia/hpc_sdk/Linux_x86_64/23.9/profilers/Nsight_Systems/bin:/opt/cray/pe/perftools/23.12.0/bin:/opt/cray/pe/papi/7.0.1.2/bin:/opt/cray/pe/craype/2.7.30/bin:/opt/cray/pe/mpich/8.1.28/ofi/gnu/12.3/bin:/opt/cray/pe/mpich/8.1.28/bin:/opt/cray/libfabric/1.15.2.0/bin:/global/common/software/nersc9/jupyter/ex/24-05/nersc-utils:/opt/nersc/pe/bin:/global/common/software/nersc/bin:/usr/local/bin:/usr/bin:/bin:/usr/lib/mit/bin:/opt/cray/pe/bin
+PE_MPICH_GTL_LIBS_amd_gfx908=-lmpi_gtl_hsa
+_ModuleTable014_=bW9kdWxlZmlsZXMvbXBpL2dudS8xMi4wL29maS8xLjAvY3JheS1tcGljaC84LjAiCiwgIi9vcHQvY3JheS9wZS9sbW9kL21vZHVsZWZpbGVzL25ldC9vZmkvMS4wIgosICIvb3B0L2NyYXkvcGUvbG1vZC9tb2R1bGVmaWxlcy9jcHUveDg2LW1pbGFuLzEuMCIKLCAiL29wdC9jcmF5L3BlL21vZHVsZWZpbGVzL0xpbnV4IiwgIi9vcHQvY3JheS9wZS9tb2R1bGVmaWxlcy9Db3JlIgosICIvb3B0L2NyYXkvcGUvbG1vZC9sbW9kL21vZHVsZWZpbGVzL0NvcmUiCiwgIi9vcHQvY3JheS9wZS9sbW9kL21vZHVsZWZpbGVzL2NvcmUiCiwgIi9vcHQvY3JheS9wZS9sbW9kL21vZHVsZWZpbGVzL2NyYXlwZS10YXJnZXRzL2RlZmF1bHQiCiwgIi9nbG9iYWwvY29tbW9uL3NvZnR3YXJlL25l
+SLURM_JOB_ID=30067993
+JAVA_BINDIR=/usr/lib64/jvm/java/bin
+PE_MPICH_GTL_DIR_nvidia90=-L/opt/cray/pe/mpich/8.1.28/gtl/lib
+__LMOD_REF_COUNT_PE_PRODUCT_LIST=CRAYPE:1;CRAYPE_X86_MILAN:1;PERFTOOLS:1;CRAYPAT:1;CRAY_HPC_SDK:1;CRAY_ACCEL:1
+_LMFILES_=/opt/cray/pe/lmod/modulefiles/craype-targets/default/craype-x86-milan.lua:/opt/cray/modulefiles/libfabric/1.15.2.0:/opt/cray/pe/lmod/modulefiles/craype-targets/default/craype-network-ofi.lua:/opt/cray/modulefiles/xpmem/2.6.2-2.5_2.38__gd067c3f.shasta:/opt/cray/pe/lmod/modulefiles/core/PrgEnv-gnu/8.5.0.lua:/opt/cray/pe/lmod/modulefiles/core/cray-dsmml/0.2.2.lua:/opt/cray/pe/lmod/modulefiles/compiler/gnu/12.0/cray-libsci/23.12.5.lua:/opt/cray/pe/lmod/modulefiles/comnet/gnu/12.0/ofi/1.0/cray-mpich/8.1.28.lua:/opt/cray/pe/lmod/modulefiles/core/craype/2.7.30.lua:/opt/cray/pe/lmod/modulefiles/core/gcc-native/12.3.lua:/opt/cray/pe/lmod/modulefiles/core/perftools-base/23.12.0.lua:/opt/cray/pe/lmod/modulefiles/core/cpe/23.12.lua:/opt/cray/pe/lmod/modulefiles/core/cudatoolkit/12.2.lua:/opt/cray/pe/lmod/modulefiles/craype-targets/default/craype-accel-nvidia80.lua:/opt/nersc/pe/modulefiles/gpu/1.0.lua:/opt/nersc/pe/modulefiles/conda/Miniconda3-py311_23.11.0-2.lua
+LMOD_FAMILY_LIBSCI_VERSION=23.12.5
+NERSC_FAMILY_PRGENV_VERSION=8.5.0
+MODULESHOME=/opt/cray/pe/lmod/lmod
+CONDA_DEFAULT_ENV=cworthy
+PKG_CONFIG_PATH=/opt/cray/pe/modulefiles/cudatoolkit:/opt/cray/pe/craype/2.7.30/pkg-config:/opt/cray/pe/dsmml/0.2.2/dsmml/lib/pkgconfig:/opt/cray/libfabric/1.15.2.0/lib64/pkgconfig
+LMOD_SETTARG_FULL_SUPPORT=no
+LMOD_CACHED_LOADS=no
+G_BROKEN_FILENAMES=1
+_ModuleTable011_=d1YgPSAiMDAwMDAwMDAxLip6ZmluYWwiLAp9LApsaWJmYWJyaWMgPSB7CmZuID0gIi9vcHQvY3JheS9tb2R1bGVmaWxlcy9saWJmYWJyaWMvMS4xNS4yLjAiLApmdWxsTmFtZSA9ICJsaWJmYWJyaWMvMS4xNS4yLjAiLApsb2FkT3JkZXIgPSAyLApwcm9wVCA9IHt9LApzdGFja0RlcHRoID0gMSwKc3RhdHVzID0gImFjdGl2ZSIsCnVzZXJOYW1lID0gImxpYmZhYnJpYyIsCndWID0gIl4wMDAwMDAwMS4wMDAwMDAwMTUuMDAwMDAwMDAyLip6ZmluYWwiLAp9LApbInBlcmZ0b29scy1iYXNlIl0gPSB7CmZuID0gIi9vcHQvY3JheS9wZS9sbW9kL21vZHVsZWZpbGVzL2NvcmUvcGVyZnRvb2xzLWJhc2UvMjMuMTIuMC5sdWEiLApmdWxsTmFtZSA9ICJwZXJmdG9vbHMtYmFzZS8yMy4x
+PE_GNU_FIXED_PKGCONFIG_PATH=/opt/cray/pe/mpich/8.1.28/ofi/gnu/12.3/lib/pkgconfig
+PE_MPICH_GTL_LIBS_amd_gfx90a=-lmpi_gtl_hsa
+NCCL_SOCKET_IFNAME=hsn
+HISTSIZE=1000
+CRAYPE_DIR=/opt/cray/pe/craype/2.7.30
+LMOD_PKG=/opt/cray/pe/lmod/lmod
+__LMOD_REF_COUNT_PE_MPICH_PKGCONFIG_LIBS=mpich:1
+OFFLOAD_INIT=on_start
+HDF5_USE_FILE_LOCKING=FALSE
+__LMOD_REF_COUNT_PE_PKGCONFIG_LIBS=cudatoolkit_12.2:1;mpich:1;libsci_mpi:1;libsci:1;dsmml:1
+CPU=x86_64
+XML_CATALOG_FILES=file:///global/homes/m/mattlong/.conda/envs/cworthy/etc/xml/catalog file:///etc/xml/catalog
+CRAYPE_VERSION=2.7.30
+_ModuleTable005_=bW9kL21vZHVsZWZpbGVzL2NvbXBpbGVyL2dudS8xMi4wL2NyYXktbGlic2NpLzIzLjEyLjUubHVhIiwKZnVsbE5hbWUgPSAiY3JheS1saWJzY2kvMjMuMTIuNSIsCmxvYWRPcmRlciA9IDcsCnByb3BUID0gewp0eXBlXyA9IHsKbWF0aCA9IDEsCn0sCn0sCnN0YWNrRGVwdGggPSAxLApzdGF0dXMgPSAiYWN0aXZlIiwKdXNlck5hbWUgPSAiY3JheS1saWJzY2kvMjMuMTIuNSIsCndWID0gIl4wMDAwMDAyMy4wMDAwMDAwMTIuMDAwMDAwMDA1Lip6ZmluYWwiLAp9LApbImNyYXktbXBpY2giXSA9IHsKZm4gPSAiL29wdC9jcmF5L3BlL2xtb2QvbW9kdWxlZmlsZXMvY29tbmV0L2dudS8xMi4wL29maS8xLjAvY3JheS1tcGljaC84LjEuMjgubHVhIiwKZnVsbE5hbWUgPSAiY3JheS1t
+LMOD_CMD=/opt/cray/pe/lmod/lmod/libexec/lmod
+SLURM_LOCALID=0
+CRAY_MPICH_PREFIX=/opt/cray/pe/mpich/8.1.28/ofi/gnu/12.3
+PE_GCC_EXTERNAL=native
+OMP_NUM_THREADS=2
+LESSOPEN=lessopen.sh %s
+CRAYPAT_OPTS_EXECUTABLE=libexec64/opts
+JUPYTERHUB_DISABLE_USER_CONFIG=1
+CRAY_XPMEM_INCLUDE_OPTS=-I/opt/cray/xpmem/2.6.2-2.5_2.38__gd067c3f.shasta/include
+PE_LIBSCI_GENCOMPS_GNU_x86_64=123
+GIT_PAGER=cat
+LMOD_DIR=/opt/cray/pe/lmod/lmod/libexec
+LMOD_FAMILY_MPI=cray-mpich
+BASH_FUNC___conda_hashr%%=() {  if [ -n "${ZSH_VERSION:+x}" ]; then
+ \rehash;
+ else
+ if [ -n "${POSH_VERSION:+x}" ]; then
+ :;
+ else
+ \hash -r;
+ fi;
+ fi
+}
+BASH_FUNC_module%%=() {  if [ -z "${LMOD_SH_DBG_ON+x}" ]; then
+ case "$-" in 
+ *v*x*)
+ __lmod_sh_dbg='vx'
+ ;;
+ *v*)
+ __lmod_sh_dbg='v'
+ ;;
+ *x*)
+ __lmod_sh_dbg='x'
+ ;;
+ esac;
+ fi;
+ if [ -n "${__lmod_sh_dbg:-}" ]; then
+ set +$__lmod_sh_dbg;
+ echo "Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output" 1>&2;
+ fi;
+ eval "$($LMOD_CMD shell "$@")" && eval "$(${LMOD_SETTARG_CMD:-:} -s sh)";
+ __lmod_my_status=$?;
+ if [ -n "${__lmod_sh_dbg:-}" ]; then
+ echo "Shell debugging restarted" 1>&2;
+ set -$__lmod_sh_dbg;
+ fi;
+ unset __lmod_sh_dbg;
+ return $__lmod_my_status
+}
+BASH_FUNC_conda%%=() {  \local cmd="${1-__missing__}";
+ case "$cmd" in 
+ activate | deactivate)
+ __conda_activate "$@"
+ ;;
+ install | update | upgrade | remove | uninstall)
+ __conda_exe "$@" || \return;
+ __conda_reactivate
+ ;;
+ *)
+ __conda_exe "$@"
+ ;;
+ esac
+}
+BASH_FUNC___conda_activate%%=() {  if [ -n "${CONDA_PS1_BACKUP:+x}" ]; then
+ PS1="$CONDA_PS1_BACKUP";
+ \unset CONDA_PS1_BACKUP;
+ fi;
+ \local ask_conda;
+ ask_conda="$(PS1="${PS1:-}" __conda_exe shell.posix "$@")" || \return;
+ \eval "$ask_conda";
+ __conda_hashr
+}
+BASH_FUNC___conda_exe%%=() {  ( "$CONDA_EXE" $_CE_M $_CE_CONDA "$@" )
+}
+BASH_FUNC_mamba%%=() {  \local cmd="${1-__missing__}";
+ case "$cmd" in 
+ activate | deactivate)
+ __conda_activate "$@"
+ ;;
+ install | update | upgrade | remove | uninstall)
+ __mamba_exe "$@" || \return;
+ __conda_reactivate
+ ;;
+ *)
+ __mamba_exe "$@"
+ ;;
+ esac
+}
+BASH_FUNC___mamba_exe%%=() {  ( \local MAMBA_CONDA_EXE_BACKUP=$CONDA_EXE;
+ \local MAMBA_EXE=$(\dirname "${CONDA_EXE}")/mamba;
+ "$MAMBA_EXE" $_CE_M $_CE_CONDA "$@" )
+}
+BASH_FUNC___conda_reactivate%%=() {  \local ask_conda;
+ ask_conda="$(PS1="${PS1:-}" __conda_exe shell.posix reactivate)" || \return;
+ \eval "$ask_conda";
+ __conda_hashr
+}
+BASH_FUNC_ml%%=() {  eval "$($LMOD_DIR/ml_cmd "$@")"
+}
+_=/usr/bin/env
