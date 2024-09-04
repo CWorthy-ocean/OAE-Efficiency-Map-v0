@@ -9,6 +9,7 @@ import textwrap
 
 import cftime
 import numpy as np
+import pandas as pd
 import xarray as xr
 
 import pop_tools
@@ -51,6 +52,35 @@ res = "TL319_g17"
 
 nmolcm2s_to_molm2yr = 1.0e-9 * 1.0e4 * 86400.0 * 365.0
 nmolcm2_to_molm2 = 1.0e-9 * 1.0e4
+
+
+def get_caseinfo():
+    cases = sorted([f for f in os.listdir(project.dir_caseroot_root) if "smyle.oae-map." in f])
+
+    rows = []
+    df_caseinfo = None
+
+    for case in cases:
+        CaseStatus = f"{project.dir_caseroot_root}/{case}/CaseStatus"
+
+        with open(CaseStatus, "r") as fid:
+            lines = fid.readlines()
+
+        row_data = dict(
+            case=case,
+            build=any("case.build success" in line for line in lines),
+            submitted=any("case.submit success" in line for line in lines),
+            running=any("case.run starting" in line for line in lines),
+            run=any("case.run success" in line for line in lines),
+            archive=any("st_archive success" in line for line in lines),
+            error=any("ERROR" in line for line in lines),
+        )
+        rows.append(row_data)
+
+    if rows:
+        df_caseinfo = pd.DataFrame(rows).set_index("case")
+    
+    return df_caseinfo    
 
 
 def create_oae_case(

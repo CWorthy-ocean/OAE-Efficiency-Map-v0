@@ -79,7 +79,7 @@ def validator(case, is_oae_run):
         variable_dict["DIC_ALT_CO2"] = "DIC"
         variable_dict["ALK_ALT_CO2"] = "ALK"
     else:
-        variable_dict = {v: v for v in varibles}
+        variable_dict = {v: v for v in variables}
 
     chunk_spec = {"nlat": -1, "nlon": -1, "z_t": 60}
 
@@ -90,6 +90,9 @@ def validator(case, is_oae_run):
             f"{archive_root}/{case}/ocn/hist/{case}.pop.h.[0-9][0-9][0-9][0-9]-[0-9][0-9].nc"
         )
     )
+    if not files:
+        return 
+    
     assert len(files) == len(
         time_case
     ), f"{len(files)} found -- expected {len(time_case)}"
@@ -108,7 +111,8 @@ def validator(case, is_oae_run):
         ],  # xarray can't merge these for some reason
         chunks=chunk_spec,
     )
-
+    ds = ds.assign_coords({"time": time_case})
+    
     # set time axis for control
     time_ctrl = xr.cftime_range(
         "0306-01-01", "0368-12-31", freq="ME", calendar="noleap"
@@ -129,10 +133,12 @@ def validator(case, is_oae_run):
         # open control dataset
         file_in = f"{fpath_smyle}/{smyle_case}.{stream}.{v_ctrl}.{datestr}.nc"
         assert os.path.exists(file_in)
-        ds_ctrl = xr.open_dataset(file_in, decode_times=False, chunks=chunk_spec).isel(
-            time=tndx
-        )
-
+        
+        ds_ctrl = xr.open_dataset(file_in, decode_times=False, chunks=chunk_spec)
+        assert len(ds_ctrl.time) == len(time_ctrl), "mismatch in control run time axis"
+        ds_ctrl = ds_ctrl.assign_coords({"time": time_ctrl})
+        ds_ctrl = ds_ctrl.isel(time=tndx)
+            
         # identify correct coordinates
         if "z_t" in ds_ctrl[v_ctrl].dims:
             isel_timeseries = dict(z_t=0, nlat=0, nlon=0)
@@ -159,16 +165,17 @@ def validator(case, is_oae_run):
         )
 
         # compute metrics
-        ds_out[f"{v_case}_rmse"].data = np.sqrt(
-            ((ds[v_case] - ds_ctrl[v_ctrl]) ** 2 / n).sum(
-                [
-                    z_dim,
-                    "nlat",
-                    "nlon",
-                ]
+        with xr.set_options(arithmetic_join="exact"):
+            ds_out[f"{v_case}_rmse"].data = np.sqrt(
+                ((ds[v_case] - ds_ctrl[v_ctrl]) ** 2 / n).sum(
+                    [
+                        z_dim,
+                        "nlat",
+                        "nlon",
+                    ]
+                )
             )
-        )
-        ds_out[f"{v_case}_diff"].data = (ds[v_case] - ds_ctrl[v_ctrl]).isel(**isel_slab)
+            ds_out[f"{v_case}_diff"].data = (ds[v_case] - ds_ctrl[v_ctrl]).isel(**isel_slab)
 
     print(f"writing {zarr_validation_data(case)}")
     ds_out.to_zarr(
