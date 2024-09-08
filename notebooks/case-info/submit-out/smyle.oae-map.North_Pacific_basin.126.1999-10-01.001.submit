@@ -23,7 +23,7 @@ Setting Environment PNETCDF_PATH=/opt/cray/pe/parallel-netcdf/1.12.3.3/intel/19.
 Setting resource.RLIMIT_STACK to -1 from (8388608, -1)
 GET_REFCASE is false, the user is expected to stage the refcase to the run directory.
 Creating component namelists
-  2024-09-02 20:41:10 atm 
+  2024-09-07 17:17:35 atm 
    Calling /global/cfs/cdirs/m4746/Projects/OAE-Efficiency-Map/codes/cesm2.2.0/cime/src/components/data_comps_mct/datm/cime_config/buildnml
 copying /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/user_datm.streams.txt.presaero.clim_1850 -> /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/Buildconf/datmconf/datm.streams.txt.presaero.clim_1850
 copying /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/user_datm.streams.txt.co2tseries.omip -> /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/Buildconf/datmconf/datm.streams.txt.co2tseries.omip
@@ -38,25 +38,25 @@ copying /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smy
 copying /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/Buildconf/datmconf/datm.streams.txt.CORE_IAF_JRA_1p4_2018.NCEP.V_10 -> /pscratch/sd/m/mattlong/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/run
 copying /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/Buildconf/datmconf/datm.streams.txt.CORE_IAF_JRA_1p4_2018.NCEP.Q_10 -> /pscratch/sd/m/mattlong/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/run
 copying /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/Buildconf/datmconf/datm.streams.txt.CORE_IAF_JRA_1p4_2018.NCEP.T_10 -> /pscratch/sd/m/mattlong/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/run
-  2024-09-02 20:41:10 lnd 
+  2024-09-07 17:17:35 lnd 
    Calling /global/cfs/cdirs/m4746/Projects/OAE-Efficiency-Map/codes/cesm2.2.0/cime/src/components/stub_comps_mct/slnd/cime_config/buildnml
-  2024-09-02 20:41:10 ice 
+  2024-09-07 17:17:35 ice 
    Calling /global/cfs/cdirs/m4746/Projects/OAE-Efficiency-Map/codes/cesm2.2.0/components/cice//cime_config/buildnml
-  2024-09-02 20:41:10 ocn 
+  2024-09-07 17:17:36 ocn 
    Calling /global/cfs/cdirs/m4746/Projects/OAE-Efficiency-Map/codes/cesm2.2.0/components/pop//cime_config/buildnml
-  2024-09-02 20:41:12 rof 
+  2024-09-07 17:17:37 rof 
    Calling /global/cfs/cdirs/m4746/Projects/OAE-Efficiency-Map/codes/cesm2.2.0/cime/src/components/data_comps_mct/drof/cime_config/buildnml
 copying /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/Buildconf/drofconf/drof_in -> /pscratch/sd/m/mattlong/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/run
 copying /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/Buildconf/drofconf/drof.streams.txt.rof.iaf_jra_1p4_2018 -> /pscratch/sd/m/mattlong/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/run
-  2024-09-02 20:41:12 glc 
+  2024-09-07 17:17:37 glc 
    Calling /global/cfs/cdirs/m4746/Projects/OAE-Efficiency-Map/codes/cesm2.2.0/cime/src/components/stub_comps_mct/sglc/cime_config/buildnml
-  2024-09-02 20:41:12 wav 
+  2024-09-07 17:17:37 wav 
    Calling /global/cfs/cdirs/m4746/Projects/OAE-Efficiency-Map/codes/cesm2.2.0/components/ww3//cime_config/buildnml
-  2024-09-02 20:41:12 iac 
+  2024-09-07 17:17:37 iac 
    Running /global/cfs/cdirs/m4746/Projects/OAE-Efficiency-Map/codes/cesm2.2.0/cime/src/components/stub_comps_mct/siac/cime_config/buildnml 
-  2024-09-02 20:41:12 esp 
+  2024-09-07 17:17:37 esp 
    Calling /global/cfs/cdirs/m4746/Projects/OAE-Efficiency-Map/codes/cesm2.2.0/cime/src/components/stub_comps_mct/sesp/cime_config/buildnml
-  2024-09-02 20:41:12 cpl 
+  2024-09-07 17:17:37 cpl 
    Calling /global/cfs/cdirs/m4746/Projects/OAE-Efficiency-Map/codes/cesm2.2.0/cime/src/drivers/mct/cime_config/buildnml
 copying /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/Buildconf/cplconf/drv_in -> /pscratch/sd/m/mattlong/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/run
 copying /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/Buildconf/cplconf/seq_maps.rc -> /pscratch/sd/m/mattlong/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/run
@@ -121,16 +121,16 @@ Loading input file list: 'Buildconf/cice.input_data_list'
 GET_REFCASE is false, the user is expected to stage the refcase to the run directory.
 GET_REFCASE is false, the user is expected to stage the refcase to the run directory.
 Creating component namelists
-  2024-09-02 20:41:14 atm 
-  2024-09-02 20:41:14 lnd 
-  2024-09-02 20:41:14 ice 
-  2024-09-02 20:41:14 ocn 
-  2024-09-02 20:41:14 rof 
-  2024-09-02 20:41:14 glc 
-  2024-09-02 20:41:14 wav 
-  2024-09-02 20:41:14 iac 
-  2024-09-02 20:41:14 esp 
-  2024-09-02 20:41:14 cpl 
+  2024-09-07 17:17:38 atm 
+  2024-09-07 17:17:38 lnd 
+  2024-09-07 17:17:38 ice 
+  2024-09-07 17:17:38 ocn 
+  2024-09-07 17:17:38 rof 
+  2024-09-07 17:17:38 glc 
+  2024-09-07 17:17:38 wav 
+  2024-09-07 17:17:38 iac 
+  2024-09-07 17:17:38 esp 
+  2024-09-07 17:17:38 cpl 
 copying /pscratch/sd/m/mattlong/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/run/wav_modelio.nml -> /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/CaseDocs
 copying /pscratch/sd/m/mattlong/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/run/cpl_modelio.nml -> /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/CaseDocs
 copying /pscratch/sd/m/mattlong/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/run/rof_modelio.nml -> /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.North_Pacific_basin.126.1999-10-01.001/CaseDocs
@@ -163,10 +163,10 @@ copying /pscratch/sd/m/mattlong/smyle.oae-map.North_Pacific_basin.126.1999-10-01
 Check case OK
 submit_jobs case.run
 Submit job case.run
-Submitting job script sbatch --time 12:00:00 -q regular --account m4746 .case.run --resubmit
-Submitted job id is 30079010
+Submitting job script sbatch --time 10:00:00 -q regular --account m4746 .case.run --resubmit
+Submitted job id is 30258937
 Submit job case.st_archive
-Submitting job script sbatch --time 12:00:00 -q regular --account m4746  --dependency=afterok:30079010 case.st_archive --resubmit
-Submitted job id is 30079022
-Submitted job case.run with id 30079010
-Submitted job case.st_archive with id 30079022
+Submitting job script sbatch --time 10:00:00 -q regular --account m4746  --dependency=afterok:30258937 case.st_archive --resubmit
+Submitted job id is 30258945
+Submitted job case.run with id 30258937
+Submitted job case.st_archive with id 30258945

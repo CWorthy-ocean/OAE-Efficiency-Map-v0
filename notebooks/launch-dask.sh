@@ -11,7 +11,7 @@ conda activate cworthy
 #start scheduler
 DASK_DISTRIBUTED__COMM__TIMEOUTS__CONNECT=3600s \
 DASK_DISTRIBUTED__COMM__TIMEOUTS__TCP=3600s \
-dask-scheduler \
+dask scheduler \
     --interface hsn0 \
     --scheduler-file $scheduler_file &
 

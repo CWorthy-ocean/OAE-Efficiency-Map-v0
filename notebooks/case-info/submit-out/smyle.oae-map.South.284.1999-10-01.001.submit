@@ -23,7 +23,7 @@ Setting Environment PNETCDF_PATH=/opt/cray/pe/parallel-netcdf/1.12.3.3/intel/19.
 Setting resource.RLIMIT_STACK to -1 from (8388608, -1)
 GET_REFCASE is false, the user is expected to stage the refcase to the run directory.
 Creating component namelists
-  2024-09-02 21:06:36 atm 
+  2024-09-07 17:35:39 atm 
    Calling /global/cfs/cdirs/m4746/Projects/OAE-Efficiency-Map/codes/cesm2.2.0/cime/src/components/data_comps_mct/datm/cime_config/buildnml
 copying /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.South.284.1999-10-01.001/user_datm.streams.txt.presaero.clim_1850 -> /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.South.284.1999-10-01.001/Buildconf/datmconf/datm.streams.txt.presaero.clim_1850
 copying /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.South.284.1999-10-01.001/user_datm.streams.txt.co2tseries.omip -> /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.South.284.1999-10-01.001/Buildconf/datmconf/datm.streams.txt.co2tseries.omip
@@ -38,25 +38,25 @@ copying /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smy
 copying /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.South.284.1999-10-01.001/Buildconf/datmconf/datm.streams.txt.CORE_IAF_JRA_1p4_2018.NCEP.V_10 -> /pscratch/sd/m/mattlong/smyle.oae-map.South.284.1999-10-01.001/run
 copying /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.South.284.1999-10-01.001/Buildconf/datmconf/datm.streams.txt.CORE_IAF_JRA_1p4_2018.NCEP.Q_10 -> /pscratch/sd/m/mattlong/smyle.oae-map.South.284.1999-10-01.001/run
 copying /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.South.284.1999-10-01.001/Buildconf/datmconf/datm.streams.txt.CORE_IAF_JRA_1p4_2018.NCEP.T_10 -> /pscratch/sd/m/mattlong/smyle.oae-map.South.284.1999-10-01.001/run
-  2024-09-02 21:06:37 lnd 
+  2024-09-07 17:35:39 lnd 
    Calling /global/cfs/cdirs/m4746/Projects/OAE-Efficiency-Map/codes/cesm2.2.0/cime/src/components/stub_comps_mct/slnd/cime_config/buildnml
-  2024-09-02 21:06:37 ice 
+  2024-09-07 17:35:39 ice 
    Calling /global/cfs/cdirs/m4746/Projects/OAE-Efficiency-Map/codes/cesm2.2.0/components/cice//cime_config/buildnml
-  2024-09-02 21:06:37 ocn 
+  2024-09-07 17:35:40 ocn 
    Calling /global/cfs/cdirs/m4746/Projects/OAE-Efficiency-Map/codes/cesm2.2.0/components/pop//cime_config/buildnml
-  2024-09-02 21:06:38 rof 
+  2024-09-07 17:35:41 rof 
    Calling /global/cfs/cdirs/m4746/Projects/OAE-Efficiency-Map/codes/cesm2.2.0/cime/src/components/data_comps_mct/drof/cime_config/buildnml
 copying /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.South.284.1999-10-01.001/Buildconf/drofconf/drof_in -> /pscratch/sd/m/mattlong/smyle.oae-map.South.284.1999-10-01.001/run
 copying /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.South.284.1999-10-01.001/Buildconf/drofconf/drof.streams.txt.rof.iaf_jra_1p4_2018 -> /pscratch/sd/m/mattlong/smyle.oae-map.South.284.1999-10-01.001/run
-  2024-09-02 21:06:38 glc 
+  2024-09-07 17:35:41 glc 
    Calling /global/cfs/cdirs/m4746/Projects/OAE-Efficiency-Map/codes/cesm2.2.0/cime/src/components/stub_comps_mct/sglc/cime_config/buildnml
-  2024-09-02 21:06:38 wav 
+  2024-09-07 17:35:41 wav 
    Calling /global/cfs/cdirs/m4746/Projects/OAE-Efficiency-Map/codes/cesm2.2.0/components/ww3//cime_config/buildnml
-  2024-09-02 21:06:39 iac 
+  2024-09-07 17:35:41 iac 
    Running /global/cfs/cdirs/m4746/Projects/OAE-Efficiency-Map/codes/cesm2.2.0/cime/src/components/stub_comps_mct/siac/cime_config/buildnml 
-  2024-09-02 21:06:39 esp 
+  2024-09-07 17:35:41 esp 
    Calling /global/cfs/cdirs/m4746/Projects/OAE-Efficiency-Map/codes/cesm2.2.0/cime/src/components/stub_comps_mct/sesp/cime_config/buildnml
-  2024-09-02 21:06:39 cpl 
+  2024-09-07 17:35:41 cpl 
    Calling /global/cfs/cdirs/m4746/Projects/OAE-Efficiency-Map/codes/cesm2.2.0/cime/src/drivers/mct/cime_config/buildnml
 copying /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.South.284.1999-10-01.001/Buildconf/cplconf/drv_in -> /pscratch/sd/m/mattlong/smyle.oae-map.South.284.1999-10-01.001/run
 copying /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.South.284.1999-10-01.001/Buildconf/cplconf/seq_maps.rc -> /pscratch/sd/m/mattlong/smyle.oae-map.South.284.1999-10-01.001/run
@@ -121,16 +121,16 @@ Loading input file list: 'Buildconf/cice.input_data_list'
 GET_REFCASE is false, the user is expected to stage the refcase to the run directory.
 GET_REFCASE is false, the user is expected to stage the refcase to the run directory.
 Creating component namelists
-  2024-09-02 21:06:40 atm 
-  2024-09-02 21:06:40 lnd 
-  2024-09-02 21:06:40 ice 
-  2024-09-02 21:06:40 ocn 
-  2024-09-02 21:06:40 rof 
-  2024-09-02 21:06:40 glc 
-  2024-09-02 21:06:40 wav 
-  2024-09-02 21:06:40 iac 
-  2024-09-02 21:06:40 esp 
-  2024-09-02 21:06:40 cpl 
+  2024-09-07 17:35:43 atm 
+  2024-09-07 17:35:43 lnd 
+  2024-09-07 17:35:43 ice 
+  2024-09-07 17:35:43 ocn 
+  2024-09-07 17:35:43 rof 
+  2024-09-07 17:35:43 glc 
+  2024-09-07 17:35:43 wav 
+  2024-09-07 17:35:43 iac 
+  2024-09-07 17:35:43 esp 
+  2024-09-07 17:35:43 cpl 
 copying /pscratch/sd/m/mattlong/smyle.oae-map.South.284.1999-10-01.001/run/wav_modelio.nml -> /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.South.284.1999-10-01.001/CaseDocs
 copying /pscratch/sd/m/mattlong/smyle.oae-map.South.284.1999-10-01.001/run/cpl_modelio.nml -> /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.South.284.1999-10-01.001/CaseDocs
 copying /pscratch/sd/m/mattlong/smyle.oae-map.South.284.1999-10-01.001/run/rof_modelio.nml -> /global/cfs/projectdirs/m4746/Projects/OAE-Efficiency-Map/cesm-cases/smyle.oae-map.South.284.1999-10-01.001/CaseDocs
@@ -163,10 +163,10 @@ copying /pscratch/sd/m/mattlong/smyle.oae-map.South.284.1999-10-01.001/run/seq_m
 Check case OK
 submit_jobs case.run
 Submit job case.run
-Submitting job script sbatch --time 12:00:00 -q regular --account m4746 .case.run --resubmit
-Submitted job id is 30080175
+Submitting job script sbatch --time 10:00:00 -q regular --account m4746 .case.run --resubmit
+Submitted job id is 30260073
 Submit job case.st_archive
-Submitting job script sbatch --time 12:00:00 -q regular --account m4746  --dependency=afterok:30080175 case.st_archive --resubmit
-Submitted job id is 30080182
-Submitted job case.run with id 30080175
-Submitted job case.st_archive with id 30080182
+Submitting job script sbatch --time 10:00:00 -q regular --account m4746  --dependency=afterok:30260073 case.st_archive --resubmit
+Submitted job id is 30260085
+Submitted job case.run with id 30260073
+Submitted job case.st_archive with id 30260085

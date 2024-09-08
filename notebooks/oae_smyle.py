@@ -54,9 +54,14 @@ nmolcm2s_to_molm2yr = 1.0e-9 * 1.0e4 * 86400.0 * 365.0
 nmolcm2_to_molm2 = 1.0e-9 * 1.0e4
 
 
-def get_caseinfo():
-    cases = sorted([f for f in os.listdir(project.dir_caseroot_root) if "smyle.oae-map." in f])
+def get_caseinfo(attempt=""):
+    if attempt:
+        cases = sorted(glob(f"{project.dir_caseroot_root}/smyle.oae-map.*.{attempt}"))
+    else:
+        cases = sorted(glob(f"{project.dir_caseroot_root}/smyle.oae-map.*.???"))
 
+    cases = [os.path.basename(f) for f in cases]
+                 
     rows = []
     df_caseinfo = None
 
@@ -65,16 +70,29 @@ def get_caseinfo():
 
         with open(CaseStatus, "r") as fid:
             lines = fid.readlines()
-
+    
+        model_has_run = any("case.run success" in line for line in lines)
         row_data = dict(
             case=case,
             build=any("case.build success" in line for line in lines),
             submitted=any("case.submit success" in line for line in lines),
             running=any("case.run starting" in line for line in lines),
-            run=any("case.run success" in line for line in lines),
+            run=model_has_run,
             archive=any("st_archive success" in line for line in lines),
             error=any("ERROR" in line for line in lines),
         )
+    
+        yrs_per_day = np.nan
+        if model_has_run:
+            timing_files = sorted(glob(f"{project.dir_caseroot_root}/{case}/timing/cesm_timing.{case}.*"))
+            for f in timing_files:
+                with open(f, "r") as fid:
+                    lines = fid.readlines()
+            
+            yrs_per_day = np.array([np.float64(l.split()[2]) for l in lines if "Model Throughput:" in l])
+            yrs_per_day = yrs_per_day.mean()
+
+        row_data["yr_per_day"] = yrs_per_day
         rows.append(row_data)
 
     if rows:
@@ -318,6 +336,7 @@ def create_oae_case(
     #        shell=True,
     #    )
 
+    
 
 def open_dataset(case, stream='pop.h'):
     """access data from a case"""
@@ -444,7 +463,7 @@ def main(case, alk_forcing_file, refdate):
         refdate=refdate,
         stop_n=15,
         stop_option="nyear",
-        wallclock="12:00:00",
+        wallclock="08:00:00",
         resubmit=0,
         clobber=False,
         submit=False,
