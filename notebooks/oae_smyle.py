@@ -55,6 +55,8 @@ nmolcm2_to_molm2 = 1.0e-9 * 1.0e4
 
 
 def get_caseinfo(attempt=""):
+    """look at all CaseStatus files and extract information"""
+    
     if attempt:
         cases = sorted(glob(f"{project.dir_caseroot_root}/smyle.oae-map.*.{attempt}"))
     else:
@@ -72,6 +74,7 @@ def get_caseinfo(attempt=""):
             lines = fid.readlines()
     
         model_has_run = any("case.run success" in line for line in lines)
+        
         row_data = dict(
             case=case,
             build=any("case.build success" in line for line in lines),
@@ -80,6 +83,7 @@ def get_caseinfo(attempt=""):
             run=model_has_run,
             archive=any("st_archive success" in line for line in lines),
             error=any("ERROR" in line for line in lines),
+            error_count=sum(["ERROR" in line for line in lines]),
         )
     
         yrs_per_day = np.nan
@@ -112,6 +116,7 @@ def create_oae_case(
     clobber=False,
     submit=False,
     curtail_output=True,
+    co2calc_mod=False,
     queue="regular",
 ):
     caseroot = f"{project.dir_caseroot_root}/{case}"
@@ -195,6 +200,11 @@ def create_oae_case(
         src_pop_files.extend(
             glob(f"{scriptroot}/SourceMods-OAE/src.pop.full-output/*")
         )
+        
+    if co2calc_mod:
+        src_pop_files.extend(
+            glob(f"{scriptroot}/SourceMods-OAE/src.pop.co2calc-mod/*")
+        )        
 
     # copy SourceMod files
     for src in src_pop_files:
@@ -342,7 +352,7 @@ def open_dataset(case, stream='pop.h'):
     """access data from a case"""
     grid = pop_tools.get_grid('POP_gx1v7')
 
-    archive_root = f'{project.dir_scratch}/archive/{case}'
+    archive_root = f'{project.dir_data}/archive/{case}'
 
     rename_underscore2_vars = False
     if stream == 'pop.h':
@@ -367,8 +377,10 @@ def open_dataset(case, stream='pop.h'):
         coords="minimal",
         combine="by_coords",
         compat="override",
+        data_vars="minimal",        
         preprocess=preprocess,
         decode_times=False,
+        chunks={"time": 1},
     )
 
     tb_var = ds.time.attrs["bounds"]
@@ -411,7 +423,7 @@ def compute_additional_CO2_flux(ds):
         flux_effect.attrs['units'] = 'mol m$^{-2}$ yr$^{-1}$'
         flux_effect.attrs['sign_convention'] = 'postive up'
         flux_effect['area_m2'] = ds.TAREA * 1e-4
-        flux_effect = flux_effect.reset_coords('TAREA', drop=True)
+        #flux_effect = flux_effect.reset_coords('TAREA', drop=True)
     return flux_effect
 
 
@@ -465,9 +477,10 @@ def main(case, alk_forcing_file, refdate):
         stop_option="nyear",
         wallclock="08:00:00",
         resubmit=0,
-        clobber=False,
+        clobber=True,
         submit=False,
         curtail_output=True,
+        co2calc_mod=False,
         queue="regular",
     )
 
