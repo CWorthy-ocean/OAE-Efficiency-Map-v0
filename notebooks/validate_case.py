@@ -104,6 +104,8 @@ def validator(case, is_oae_run):
     if is_oae_run:
         variable_dict["DIC_ALT_CO2"] = "DIC"
         variable_dict["ALK_ALT_CO2"] = "ALK"
+        variable_dict["ECOSYS_IFRAC"] = "ECOSYS_IFRAC"
+        variable_dict["FG_ALT_CO2"] = "FG_CO2"                
     else:
         variable_dict = {v: v for v in variables}
 
@@ -174,7 +176,7 @@ def validator(case, is_oae_run):
             if "z_t" in ds_ctrl[v_ctrl].dims:
                 isel_timeseries = dict(z_t=0, nlat=0, nlon=0)
                 isel_slab = dict(z_t=0, time=-1)
-                z_dim = "z_t"
+                sum_dims = ["z_t", "nlat", "nlon"]
 
             elif "z_w_top" in ds_ctrl[v_ctrl].dims:
                 isel_timeseries = dict(z_w_top=9, nlat=0, nlon=0)
@@ -184,7 +186,11 @@ def validator(case, is_oae_run):
             elif "z_t_150m" in ds_ctrl[v_ctrl].dims:
                 isel_timeseries = dict(z_t_150m=0, nlat=0, nlon=0)
                 isel_slab = dict(z_t_150m=0, time=-1)
-                z_dim = "z_t_150m"
+                sum_dims = ["z_t_150m", "nlat", "nlon"]                
+            else:
+                isel_timeseries = dict(nlat=0, nlon=0)
+                isel_slab = dict(time=-1)
+                sum_dims = ["nlat", "nlon"]                
 
             # initialize variables
             n = ds[v_case].isel(time=0).notnull().sum()
@@ -198,13 +204,7 @@ def validator(case, is_oae_run):
             # compute metrics
             with xr.set_options(arithmetic_join="exact"):
                 ds_out[f"{v_case}_rmse"].data = np.sqrt(
-                    ((ds[v_case] - ds_ctrl[v_ctrl]) ** 2 / n).sum(
-                        [
-                            z_dim,
-                            "nlat",
-                            "nlon",
-                        ]
-                    )
+                    ((ds[v_case] - ds_ctrl[v_ctrl]) ** 2 / n).sum(sum_dims)
                 )
                 ds_out[f"{v_case}_diff"].data = (ds[v_case] - ds_ctrl[v_ctrl]).isel(
                     **isel_slab
