@@ -12,7 +12,6 @@ import xarray as xr
 import pop_tools
 
 
-
 def pop_add_cyclic(ds):
     
     nj = ds.TLAT.shape[0]
@@ -126,85 +125,6 @@ def add_coast_mask(grid):
     
     return grid, coast_indices
 
-
-def open_dataset(case, stream='pop.h', from_campaign=False):
-    """access data from a case"""
-    grid = pop_tools.get_grid('POP_gx1v7')
-
-
-    #archive_root = f'{config.dir_scratch}/archive/{case}'
-    
-    
-    rename_underscore2_vars = False
-    if stream == 'pop.h':
-        subdir = 'ocn/hist'
-        datestr_glob = '????-??'
-    elif stream == 'pop.h.ecosys.nday1':
-        subdir = 'ocn/hist'
-        datestr_glob = '????-??-??'
-        rename_underscore2_vars = True
-    else:
-        raise ValueError(f'access to stream: "{stream}" not defined')
-        
-    # ### Added by Mengyang on Nov 1, 2023 to read files from run directories.
-    # if from_run_dire == True:   
-    #     archive_root = f'{config.dir_scratch}/{case}'
-    #     subdir = 'run'
-
-    ### Added by Mengyang on May 14, 2024 to read files from campaign directories.
-    if from_campaign == True:   
-        archive_root = f'/glade/campaign/cesm/development/bgcwg/projects/OAE-Global-Efficiency/Mengyang_Global_OAE_Experiments/archive/{case}'
-
-
-    glob_str = f'{archive_root}/{subdir}/{case}.{stream}.{datestr_glob}.nc'
-    files = sorted(glob(glob_str))
-    assert files, f'no files found.\nglob string: {glob_str}'
-
-    def preprocess(ds):
-        return ds.set_coords(["KMT", "TAREA"]).reset_coords(["ULONG", "ULAT"], drop=True)
-
-    ds = xr.open_mfdataset(
-        files,
-        coords="minimal",
-        combine="by_coords",
-        compat="override",
-        preprocess=preprocess,
-        decode_times=False,
-        parallel=True,
-        data_vars = ['time_bound','dz', 'REGION_MASK','UAREA','CO3', 'CO3_ALT_CO2','ECOSYS_XKW','pCO2SURF', 'FG_CO2','pCO2SURF_ALT_CO2','FG_ALT_CO2','ALK_FLUX','DIC','DIC_ALT_CO2','ALK','ALK_ALT_CO2',]
-    )
-
-    tb_var = ds.time.attrs["bounds"]
-    time_units = ds.time.units
-    calendar = ds.time.calendar
-
-    ds['time'] = cftime.num2date(
-        ds[tb_var].mean('d2'),
-        units=time_units,
-        calendar=calendar,
-    )
-    ds.time.encoding.update(dict(
-        calendar=calendar,
-        units=time_units,
-    ))
-
-    d2 = ds[tb_var].dims[-1]
-    ds['time_delta'] = ds[tb_var].diff(d2).squeeze()
-    ds = ds.set_coords('time_delta')
-
-    ds['TLONG'] = grid.TLONG
-    ds['TLAT'] = grid.TLAT
-    ds['KMT'] = ds.KMT.fillna(0)
-
-    if rename_underscore2_vars:
-        rename_dict = dict()
-        for v in ds.data_vars:
-            if v[-2:] == '_2':
-                rename_dict[v] = v[:-2]
-        ds = ds.rename(rename_dict)
-
-    return ds
-
 def process(da):
     
     da['ALK_excess'] = da.ALK - da.ALK_ALT_CO2
@@ -213,6 +133,5 @@ def process(da):
     da['DpCO2_excess'] = da.DpCO2 - da.DpCO2_ALT_CO2
     da['FG_CO2_excess'] = da.FG_CO2 - da.FG_ALT_CO2
     da['PH_excess'] = da.PH - da.PH_ALT_CO2
-    
     
     return da
