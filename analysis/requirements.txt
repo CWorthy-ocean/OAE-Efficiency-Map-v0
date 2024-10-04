@@ -6,5 +6,5 @@ scipy
 gsw
 PyCO2SYS
 joblib
-sklearn
+scikit-learn
 tables
