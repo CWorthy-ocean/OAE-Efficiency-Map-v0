@@ -1,0 +1,37 @@
+name: cworthy
+channels:
+- conda-forge
+- default
+dependencies:
+- cartopy
+- cmocean
+- dask
+- distributed
+- dask-jobqueue
+- esmpy
+- ffmpeg
+- holoviews
+- ipykernel
+- ipywidgets
+- jupyter-book
+- jupyter_client
+- jupyterlab
+- mamba
+- matplotlib
+- nb_conda_kernels
+- nbformat
+- nbterm
+- nc-time-axis
+- netCDF4
+- numpy
+- PyCO2SYS
+- pandas
+- papermill
+- pip
+- pop-tools
+- scipy
+- seawater
+- xarray
+- xesmf
+- xgcm
+- zarr
