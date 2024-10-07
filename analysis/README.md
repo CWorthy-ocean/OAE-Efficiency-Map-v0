@@ -18,4 +18,6 @@ A potential solution is to use Conda (see below)
 ## Conda
 
 To run jupyter and these notebooks in Conda, the following steps are required:
-
+ *  Ensure you have conda installed on your system (see https://anaconda.org/anaconda/conda)
+ *  Use the provided environment.yml file to create the environment:  `conda env create -f environment.yml`
+ *  Once the environment is created, activate it with: `conda activate cworthy`
